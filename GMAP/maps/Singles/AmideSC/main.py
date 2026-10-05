@@ -11,6 +11,7 @@ import numpy as np
 
 # GMAP imports
 import GMAP.src.tools.constants as GM_con
+import GMAP.src.tools.default_map_functions as GM_dmf
 
 # own module imports
 import AmideSC_code.calculation_methods as MC_cm
@@ -135,6 +136,16 @@ def GM_post_init(map_, system):
         about the system being treated (names, numbers, types, masses,
         charges of all atoms, for example)
     """
+
+    def calculate_frequency(map_, system, osc):
+        freq = calc_frequency(map_, system, osc)
+        if map_.run_pars.solvent == "H2O":
+            freq = (freq - 340) / 0.791
+        return freq
+
+    calc_frequency = GM_dmf.get_calculate_frequency(map_)
+    map_.code.GM_calculate_frequency = calculate_frequency
+
 
     if map_.run_pars.dipole_map_choice == "Torii":
         map_.code.GM_calculate_dipole = MC_cm.calc_dipole_Torii
@@ -298,6 +309,9 @@ def GM_report_references(map_, system):
     # This map has a whole bunch of references stored, but not (nearly) all
     # are actually used in a single calculation... Find those that are.
     report_these.append("RamanAmide")
+
+    if map_.run_pars.solvent == "H2O":
+        report_these.append("H20conv")
 
     # freq map used:
     report_these.append(f"Emap{map_.run_pars.frequency_map_choice}SC")

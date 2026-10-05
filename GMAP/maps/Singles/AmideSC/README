@@ -90,8 +90,13 @@ AmideSC.legacy_mode
     Warning!
     When using the legacy_mode set to AIM, the treat_box parameter is ignored by this map!
 
+AmideSC.solvent
+    no shorthand
+    options: D2O, H2O (default = D2O)
 
-AmideBB.Torii_dipole_angle
+    What the solvent of the system should be. The calculation assumes that the hydrogen atom on the nitrogen of the amide bond is of the same type as the solvent. However, the change of weight of the atom is not considered - it's movement and weight are determined by the preceeding MD simulation.
+
+AmideSC.Torii_dipole_angle
     no shorthand
     options: any float (default = 10)
 
