@@ -402,6 +402,9 @@ def GM_report_references(map_, system):
     if map_.run_pars.solvent == "H2O":
         report_these.append("H20conv")
 
+    if map_.run_pars.solvent == "H2O":
+        report_these.append("H20conv")
+
     # freq map used:
     report_these.append(f"Emap{map_.run_pars.frequency_map_choice}SC")
 

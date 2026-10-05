@@ -613,6 +613,10 @@ def GM_report_references(map_, system):
     if map_.run_pars.solvent == "H2O":
         report_these.append("H20conv")
 
+    # Report the paper used for converting from D2O to H2O
+    if map_.run_pars.solvent == "H2O":
+        report_these.append("H20conv")
+
     # do we have any pros?
     pro_present = any(
         osc.resnames[1] == "PRO"
