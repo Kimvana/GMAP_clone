@@ -93,7 +93,7 @@ class TCC_Clib(metaclass=GM_ct.Singleton):
         Parameters
         ----------
         map_ : :class:`~GMAP.src.tools.map_reader.PairMap`
-            The TRESP map object in the code - this will be the object
+            The TrEsp map object in the code - this will be the object
             that gains the new c-library attribute.
         system : :class:`~GMAP.src.tools.system_reader.System`
             The object that stores everything the program currently

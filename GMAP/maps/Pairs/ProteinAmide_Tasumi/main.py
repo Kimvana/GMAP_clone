@@ -88,7 +88,7 @@ class NeighborMap:
         """
 
         angle *= GM_con.rad2deg
-        angle_N = int((angle + 180) // self.space)
+        angle_N = int((round(angle, 4) + 180) // self.space)
         if angle_N == (self.dim - 1):
             angle_N = self.dim - 2
         return angle, angle_N

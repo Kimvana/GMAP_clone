@@ -9,13 +9,13 @@ import GMAP.src.tools.parameter_parser as GM_pp
 import GMAP.src.tools.print_tools as GM_pt
 
 # own module imports
-import TRESP_code.TRESPclib as MC_tc
+import TrEsp_code.TrEsp_clib as MC_tc
 
 _ = GM_con.bohr  # to validify the import. The import is needed for exec.
 
 
 def GM_change_coup_type(map_, system, oscix1, osc1, oscix2, osc2):
-    return map_.name  # return TRESP
+    return map_.name  # return TrEsp
 
 
 def GM_post_init(map_, system):
@@ -30,14 +30,15 @@ def GM_post_init(map_, system):
         # If a map has a dedicated function, use that instead of interpreting
         # the provided file.
 
-        if hasattr(osc.map.code, "CP_TRESP_get_charges"):
-            map_.charges[osc.oscix] = osc.map.code.CP_TRESP_get_charges(
+        if hasattr(osc.map.code, "CP_TrEsp_get_charges"):
+            map_.charges[osc.oscix] = osc.map.code.CP_TrEsp_get_charges(
                     osc.map, system, osc)
         # only look for each type of singles once.
         elif osc.map.name in map_charges:
             map_.charges[osc.oscix] = map_charges[osc.map.name]
         else:
             map_charges[osc.map.name] = get_charges(map_, osc.map)
+            map_.charges[osc.oscix] = map_charges[osc.map.name]
 
     MC_tc.init_map_for_clib(map_, system)
 
@@ -77,7 +78,7 @@ def GM_calc_coupling(map_, system, hamiltonian):
 
 
 def get_charges(map_, oscmap):
-    # This map contains the keyword for the TRESP charges file, obtain
+    # This map contains the keyword for the TrEsp charges file, obtain
     # that file's name
     fname = gc_get_filename(map_, oscmap)
     if fname is None:
@@ -105,15 +106,15 @@ def gc_get_filename(map_, oscmap):
     Parameters
     ----------
     map_ : :class:`~GMAP.src.tools.map_reader.PairMap`
-        The TRESP map object
+        The TrEsp map object
     oscmap: :class:`~GMAP.src.tools.map_reader.SingleMap`
-        The map object of the map for which we'd like to obtain TRESP
+        The map object of the map for which we'd like to obtain TrEsp
         charges.
 
     Returns
     -------
     fname : pathlib.Path or None
-        The path to the file that stores the TRESP charges. None is
+        The path to the file that stores the TrEsp charges. None is
         returned when something is wrong with the file.
     """
 
@@ -126,7 +127,7 @@ def gc_get_filename(map_, oscmap):
             f"{fname}\nPlease make sure the map is installed correctly. If "
             "the problem persists, please contact the author of the "
             f"{oscmap.name} map.",
-            "map_TRESP_1", False
+            "map_TrEsp_1", False
         )
         map_.success = False
         return None
@@ -138,7 +139,7 @@ def gc_get_filename(map_, oscmap):
             f"\n{fname}\nPlease make sure the map is installed correctly. If "
             "the problem persists, please contact the author of the "
             f"{oscmap.name} map.",
-            "map_TRESP_2", False
+            "map_TrEsp_2", False
         )
         map_.success = False
         return None
@@ -146,26 +147,26 @@ def gc_get_filename(map_, oscmap):
 
 
 def gc_get_file_contents(fname, map_, oscmap):
-    """Helper function for get_charges. Gets contents of oscmaps'TRESP
+    """Helper function for get_charges. Gets contents of oscmaps'TrEsp
     file.
 
     Parameters
     ----------
     fname : pathlib.Path
-        The path to the file that stores the TRESP charges.
+        The path to the file that stores the TrEsp charges.
     map_ : :class:`~GMAP.src.tools.map_reader.PairMap`
-        The TRESP map object
+        The TrEsp map object
     oscmap: :class:`~GMAP.src.tools.map_reader.SingleMap`
-        The map object of the map for which we'd like to obtain TRESP
+        The map object of the map for which we'd like to obtain TrEsp
         charges.
 
     Returns
     -------
     contents : `np.ndarray` or None
-        A numpy array with the TRESP charges from the file. Returns
+        A numpy array with the TrEsp charges from the file. Returns
         None if there was some issue with the contents of the file.
         The array has no certain datatype, that is enforced by the
-        TRESP map in a later stage.
+        TrEsp map in a later stage.
     """
 
     contents = []
@@ -184,7 +185,7 @@ def gc_get_file_contents(fname, map_, oscmap):
             f"\n{fname}\nPlease make sure the map is installed correctly. If "
             "the problem persists, please contact the author of the "
             f"{oscmap.name} map.",
-            "map_TRESP_3", False
+            "map_TrEsp_3", False
         )
         map_.success = False
         return None
@@ -196,7 +197,7 @@ def gc_get_file_contents(fname, map_, oscmap):
             f"\n{fname}\nPlease make sure the map is installed correctly. If "
             "the problem persists, please contact the author of the "
             f"{oscmap.name} map.",
-            "map_TRESP_4", False
+            "map_TrEsp_4", False
         )
         map_.success = False
         return None
@@ -206,7 +207,7 @@ def gc_get_file_contents(fname, map_, oscmap):
 
 
 def gc_get_multiplier(keyword, map_, oscmap):
-    """Helper function for get_charges. Gets contents of oscmaps'TRESP
+    """Helper function for get_charges. Gets contents of oscmaps'TrEsp
     file.
 
     Parameters
@@ -215,16 +216,16 @@ def gc_get_multiplier(keyword, map_, oscmap):
         The name of the parameter used in oscmap's core.txt file to
         store the multiplication factor.
     map_ : :class:`~GMAP.src.tools.map_reader.PairMap`
-        The TRESP map object
+        The TrEsp map object
     oscmap: :class:`~GMAP.src.tools.map_reader.SingleMap`
-        The map object of the map for which we'd like to obtain TRESP
+        The map object of the map for which we'd like to obtain TrEsp
         charges.
 
     Returns
     -------
     multiplier : float
-        The number by which to multiply the tresp charges from the
-        tresp charges file before use.
+        The number by which to multiply the TrEsp charges from the
+        TrEsp charges file before use.
     """
 
     cmdstr = "multiplier = " + " ".join(oscmap.rawcore[keyword])
@@ -239,7 +240,7 @@ def gc_get_multiplier(keyword, map_, oscmap):
             "Please make sure the choice only contains numbers (and "
             "optionally a single '.') that represent a decimal value. "
             "Alternatively, make sure it is a python-parsable string. ",
-            "map_TRESP_5", False
+            "map_TrEsp_5", False
         )
         map_.success = False
         return None
@@ -253,7 +254,7 @@ def gc_get_multiplier(keyword, map_, oscmap):
             "Please make sure the choice only contains numbers (and "
             "optionally a single '.') that represent a decimal value. "
             "Alternatively, make sure it is a python-parsable string. ",
-            "map_TRESP_5", False
+            "map_TrEsp_5", False
         )
         map_.success = False
         return None

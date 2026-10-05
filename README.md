@@ -10,6 +10,7 @@ on this page:
 - [How to generate the documentation using sphinx](#how-to-generate-the-documentation-using-sphinx)
 - [How to compile C code](#how-to-compile-c-code)
 - [Differences between GMAP and AIM](#differences-between-gmap-and-aim)
+- [Version information](#version-information)
 
 
 ## How to install 
@@ -19,21 +20,22 @@ The installation instructions mention using a venv. This virtual environment is 
 While the instructions work without one, it is definitely good practice to use one, so we highly recommend it!
 
 ### Installation for general users:
-1. Clone this github repo, and navigate to the directory this file is located in.
-2. Using ```python -m venv env_GMAP```, create a virtual environment.
-3. Activate the environment by running
+1. Make sure you have a valid python installation. For details, see [Version information](#version-information)
+2. Clone this github repo, and navigate to the directory this file is located in.
+3. Using ```python -m venv env_GMAP```, create a virtual environment.
+4. Activate the environment by running
    * (Unix)  ```source env_GMAP/bin/activate```
    * (Windows) ```env_GMAP\Scripts\activate.bat``` (doesn't work in powershell)
-4. (optional) Don't forget to compile the GMAP C library! There are also some maps that might need to have their C libraries installed, they will mention this in their README. Compilation instructions are system dependent, and given lower down in this file. After this installation, the program is ready for use. 
+5. (optional) Don't forget to compile the GMAP C library! There are also some maps that might need to have their C libraries installed, they will mention this in their README. Compilation instructions are system dependent, and given lower down in this file. After this installation, the program is ready for use. 
 
    This step is optional, because compiled versions of all files come with the program. If you'd rather compile yourself than using ours, this is the time to do so!
-5. Install GMAP:
+6. Install GMAP:
    * (general users, use wheel, windows) run ```python3 -m pip install dist\gmap-0.0.1-py3-none-any.whl```
    * (general users, use wheel, unix) run ```python3 -m pip install dist/gmap-0.0.1-py3-none-any.whl```
    * (general users, rebuild wheel) run ```python3 -m pip install .```
    * (developers) run ```python3 -m pip install -e ".[testing]"```
-6. now, from anywhere, typing ```GMAP``` will start the program. If not, something has gone wrong. However, we're not done yet.
-7. Once you're done using the program, you can deactivate the environment again by typing 'deactivate' (without the quotation marks in the terminal/command line).
+7. now, from anywhere, typing ```GMAP``` will start the program. If not, something has gone wrong. However, we're not done yet.
+8. Once you're done using the program, you can deactivate the environment again by typing 'deactivate' (without the quotation marks in the terminal/command line).
 
 ### Installation for developers
 1. Follow steps 1-6 of the non-developer guide.
@@ -97,7 +99,7 @@ When you've made some choices to the code, and would like to rebuild the docs, n
 
 * (always) GMAP/sourcefiles/VEG.cpp (see instructions below)
 * (optional) GMAP/maps/Pairs/ProteinAmide_TCC/src/TCC_clib.cpp (modified command, see TCC map README). This is only needed if the map is used.
-* (optional) GMAP/maps/Pairs/TRESP/src/TRESP_clib.cpp (modified command, see TRESP map README). This is only needed if the map is used.
+* (optional) GMAP/maps/Pairs/TrEsp/src/TrEsp_clib.cpp (modified command, see TrEsp map README). This is only needed if the map is used.
 
 ### windows
 
@@ -187,5 +189,30 @@ This might be pedantic, but GMAP is not comparable to AIM. AIM is a program that
 - **Better file management.** A small change can make a huge difference. When GMAP creates new files, it makes sure to not overwrite any old ones of the same name if they already exist. Unless you tell it it should, of course!
 - **Web-based manual.** The GMAP manual is website-based, instead of AIM's pdf text beast. Pages are linked together, and even the full documentation of the codebase can be found (helpful for developers).
 - **Silencing warnings.** Ever screamed at your PC "I know, stupid thing! But it doesn't matter!"? We have. Now, you can tell the program to not complain/quit at any warning of your choice. However, use it at your own risk, the warnings are there for a reason!
+
+
+## Version information
+
+In order to use GMAP, you need to have a valid python installation. In this context, valid means that the correct version of python (and modules) is used, and that the python environment contains only modules whose versions work together.
+
+Here follows an overview of versions that have been tested to work, but keep in mind that not every combination of every version and every module has been tested. The version printed in bold is the version used for development - this is considered the most stable. Versions between brackets have not all been tested, but are considered safe.
+
+When you need to replicate a 'proven' environment - the `requirements_py3_10.txt` file is a mirror of the most used development environment in python 3.10.11. The `requirements_py3.13.txt` file is a mirror for a tested environment in python 3.13.1.
+
+- Python: **3.10.11** (3.10.8 - 3.13.1)
+- MDAnalysis: **2.9.0** (2.9.0 - 2.10.0)
+- numba: **0.60.0** (0.60.0 - 0.62.1)
+- numpy: **1.26.0** (1.26.0 - 2.3.5)
+- build (dev build only): **1.3.0** (1.3.0)
+- dataframe-image (dev build only): **0.2.7** (0.2.7)
+- flake8 (dev build only): **7.3.0** (7.3.0)
+- gprof2dot (dev build only): **2025.4.14** (2025.4.14)
+- numpydoc (dev build only): **1.9.0** (1.9.0)
+- pandas (dev build only): **2.3.2** (2.3.2 - 2.3.3)
+- pydata-sphinx-theme (dev build only): **0.16.1** (0.16.1)
+- pytest (dev build only): **8.4.2** (8.4.2 - 9.0.1)
+- pytest-cov (dev build only): **7.0.0** (7.0.0)
+- sphinx (dev build only): **8.1.3** (8.1.3 - 8.2.3)
+- sphinx-design (dev build only): **0.6.1** (0.6.1)
 
 

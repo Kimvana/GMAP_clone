@@ -11,7 +11,7 @@ sections:
 intended use
 ------------
 
-This map is intended to calculate the TRESP (transition charges from electrostatic potentials) coupling between two singles. Any single can be coupled, but it does need to have partial charges declared/known. This map should not be used to couple two singles that share an atom. While map will not throw any error, the results computed might not make sense.
+This map is intended to calculate the TrEsp (Transition charges from Electrostatic potentials) coupling between two singles. Any single can be coupled, but it does need to have partial charges declared/known. This map should not be used to couple two singles that share an atom. While map will not throw any error, the results computed might not make sense.
 
 
 how to install
@@ -19,27 +19,27 @@ how to install
 
 This map needs some installation before it can be used:
 - copy this map from github to the pairs folder of your maps directory:
-  your/map-directory/Pairs/TRESP
+  your/map-directory/Pairs/TrEsp
 - Find out the location of your GMAP installation directory. In particular, save the **full** path to the sourcefiles directory (including the sourcefiles directory itself).
-- navigate to the src directory within the TRESP directory
+- navigate to the src directory within the TrEsp directory
 - install the c script:
   - Windows:
     - Just as with GMAP installation, use the x86 (32bit) or x64 (64bit) command line from microsoft visual studio
-    - navigate to the src directory of your TRESP copy
+    - navigate to the src directory of your TrEsp copy
     - run the following command, making sure to point to the path of the sourcefiles directory of your installation (that we looked up earlier)
-      cl.exe /LD /Fe: TRESP_clib_Win64bit /I\your\GMAP\location\sourcefiles TRESP_clib.cpp
+      cl.exe /LD /Fe: TrEsp_clib_Win64bit /I\your\GMAP\location\sourcefiles TrEsp_clib.cpp
   - Linux:
-    - You are already in the correct directory (TRESP/src) to run the install command. Run the following command, making sure to point to the path of the sourcefiles directory of your installation (that we looked up earlier):
-      g++ -fPIC -shared -o TRESP_clib_Linux.so -I/your/GMAP/location/sourcefiles TRESP_clib.cpp
+    - You are already in the correct directory (TrEsp/src) to run the install command. Run the following command, making sure to point to the path of the sourcefiles directory of your installation (that we looked up earlier):
+      g++ -fPIC -shared -o TrEsp_clib_Linux.so -I/your/GMAP/location/sourcefiles TrEsp_clib.cpp
   - MacOS:
-   - You are already in the correct directory (TRESP/src) to run the install command. Run the following command, making sure to point to the path of the sourcefiles directory of your installation (that we looked up earlier):
-      g++ -fPIC -shared -o TRESP_clib_MacOS.dylib -I/your/GMAP/location/sourcefiles TRESP_clib.cpp
+   - You are already in the correct directory (TrEsp/src) to run the install command. Run the following command, making sure to point to the path of the sourcefiles directory of your installation (that we looked up earlier):
+      g++ -fPIC -shared -o TrEsp_clib_MacOS.dylib -I/your/GMAP/location/sourcefiles TrEsp_clib.cpp
 
 
 how to use
 ----------
 
-This map can (and must) be directly requested in the input file using 'couplings_to_use'. Any type of single this map is requested for must have a partial charges file declared. You can check whether this is the case by seeing if the keyword 'TRESP.charges_filename' is present in the map's core.txt file.
+This map can (and must) be directly requested in the input file using 'couplings_to_use'. Any type of single this map is requested for must have a partial charges file declared. You can check whether this is the case by seeing if the keyword 'TrEsp.charges_filename' is present in the map's core.txt file.
 
 If that keyword is present, the coupling can just be requested. If not, that singles map should be coupled by a map different from this one.
 
@@ -57,20 +57,20 @@ None. This map has no custom settings to be used.
 warnings that can be raised by this map
 ---------------------------------------
 
-map_TRESP_1
+map_TrEsp_1
     A file was supplied to have the partial charges read, but that location doesn't exist, or is not a file.
 
-map_TRESP_2
+map_TrEsp_2
     A file was supplied to have the partial charges read. While it does indeed exist, it has an encoding this map cannot use. Make sure your file is UTF-8.
 
-map_TRESP_3
+map_TrEsp_3
     The file supplied to read partial charges has contents that cannot be converted to floats. The file is expected to have a single value on each line, so there should only be numbers, periods and newlines/whitespaces in the file. If you want to have a comment to explain numbers, that should be preceeded by a "#". 
 
-map_TRESP_4
+map_TrEsp_4
     The file supplied contains too many values. There should at most be as many values (= filled lines) in the file as there are atoms specified in the map's core.txt file under 'used_atoms'.
 
-map_TRESP_5
-    The parameter TRESP.charges_multiply couldn't be converted to a simple number. map_TRESP_5 is this map's version of MI_MC_13.
+map_TrEsp_5
+    The parameter TrEsp.charges_multiply couldn't be converted to a simple number. map_TrEsp_5 is this map's version of MI_MC_13.
 
 
 important notes for singles-map developers
@@ -78,16 +78,16 @@ important notes for singles-map developers
 
 This map needs to have some information from a single that GMAP does not. Therefore, you have to take special care in adding that information separately, as GMAP will only notify it's missing when this coupling map is actively requested.
 
-To make your map ready for TRESP, you have to have difference charges supplied. These can, for example, be computed through DFT - subtract the partial charges of the (desired/modeled) excited state from the partial charges of the ground state to obtain the difference charges.
+To make your map ready for TrEsp, you have to have difference charges supplied. These can, for example, be computed through DFT - subtract the partial charges of the (desired/modeled) excited state from the partial charges of the ground state to obtain the difference charges.
 
 There can at most be a charge for every atom declared under 'used_atoms'. If there are fewer charges (just N in total), only the first N atoms of those specified under used_atoms will be used. You cannot truly 'skip' an atom in used charges, but by adding a '0' (zero) in the partial charges file for the 'skipped' atom will produce results as if it was skipped. This will harm performance, though, so try to avoid doing so!
 
-The difference charges go in a separate file declared using the keyword 'TRESP.charges_filename' in the core.txt file. Each charge should go on a separate line. The file can contain comments indicated using a '#'.
+The difference charges go in a separate file declared using the keyword 'TrEsp.charges_filename' in the core.txt file. Each charge should go on a separate line. The file can contain comments indicated using a '#'.
 
-The contents of the file mentioned using the keyword 'TRESP.charges_filename' in the core.txt file, can be multiplied with any given value provided using the keyword 'TRESP.charges_filename'. Specifying a value for this keyword happens in the same way as for the singles-keyword multiply_freq.
+The contents of the file mentioned using the keyword 'TrEsp.charges_filename' in the core.txt file, can be multiplied with any given value provided using the keyword 'TrEsp.charges_filename'. Specifying a value for this keyword happens in the same way as for the singles-keyword multiply_freq.
 
 If your singles map is more complex, it might happen that not all singles found for your map should get the same set of difference charges. One example of this is the AmideBB map. If that is the case, you can specify the following function (signature) in your main.py file:
-CP_TRESP_get_charges(map_, system, osc)
-Here, 'map_' is the object containing the SINGLES map (not the TRESP map), 'system' contains the MD system, and 'osc' is the oscillator for which the TRESP map needs to know the partial charges. The function should return a numpy array (dtype='float32') containing the desired charges. The AmideBB map can serve as an example on how this function can be implemented - it even uses the file parser defined in this map.
+CP_TrEsp_get_charges(map_, system, osc)
+Here, 'map_' is the object containing the SINGLES map (not the TrEsp map), 'system' contains the MD system, and 'osc' is the oscillator for which the TrEsp map needs to know the partial charges. The function should return a numpy array (dtype='float32') containing the desired charges. The AmideBB map can serve as an example on how this function can be implemented - it even uses the file parser defined in this map.
 
-If the CP_TRESP_get_charges function is defined, you still need to have the 'TRESP.charges_filename' parameter present in your core.txt. It is good practice to have it still point to a valid file, for example the most representative/common set of difference charges. However, this line in the core file will not actually be used by this map if the CP_TRESP_get_charges function is present in the main.py file. 
+If the CP_TrEsp_get_charges function is defined, you still need to have the 'TrEsp.charges_filename' parameter present in your core.txt. It is good practice to have it still point to a valid file, for example the most representative/common set of difference charges. However, this line in the core file will not actually be used by this map if the CP_TrEsp_get_charges function is present in the main.py file. 

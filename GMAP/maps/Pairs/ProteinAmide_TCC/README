@@ -20,13 +20,13 @@ how to install
 
 This map needs some installation before it can be used:
 - copy this map from github to the pairs folder of your maps directory:
-  your/map-directory/Pairs/TRESP
+  your/map-directory/Pairs/TrEsp
 - Find out the location of your GMAP installation directory. In particular, save the **full** path to the sourcefiles directory (including the sourcefiles directory itself).
-- navigate to the src directory within the TRESP directory
+- navigate to the src directory within the TrEsp directory
 - install the c script:
   - Windows:
     - Just as with GMAP installation, use the x86 (32bit) or x64 (64bit) command line from microsoft visual studio
-    - navigate to the src directory of your TRESP copy
+    - navigate to the src directory of your TrEsp copy
     - run the following command, making sure to point to the path of the sourcefiles directory of your installation (that we looked up earlier)
       cl.exe /LD /Fe: TCC_clib_Win64bit /I\your\GMAP\location\sourcefiles TCC_clib.cpp (or, for absolute files, /I d:\path\to\sourcefiles)
   - Linux:

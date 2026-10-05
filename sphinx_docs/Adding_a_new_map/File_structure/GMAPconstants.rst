@@ -49,7 +49,7 @@ i4pieps
     Also known as the Coulomb constant, this is the constant of proportionality in coulombs law. It is expressed in SI units N*m^2*C^-2. It has a value of 8.98755178615e9 and is calculated as ``1 / (4 * np.pi * eps)``.
 
 e2i4pieps_angcm
-    The square of the elementary charge multiplied with the coulomb constant, all expressed in angstroms for distance and wavenumbers for energies. While this value might seem arbitrary, it is used often for TrESP charges. It has a value of 116140.9732096081 and is calculated as ``e * e * i4pieps * J2cm / angstrom``.
+    The square of the elementary charge multiplied with the coulomb constant, all expressed in angstroms for distance and wavenumbers for energies. While this value might seem arbitrary, it is used often for TrEsp charges. It has a value of 116140.9732096081 and is calculated as ``e * e * i4pieps * J2cm / angstrom``.
 
 Debye
     One Debye expressed in coulomb meter. It has a value of 3.33564095198152e-30 and is calculated as ``1e-21 / c``.

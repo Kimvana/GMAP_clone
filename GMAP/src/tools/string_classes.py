@@ -113,10 +113,10 @@ class ColStr(str):
         item in, list(ColStr)), __len__, __mul__, __rmul__, join,
         replace, split
 
-    .. warning ::
+    .. warning::
         str.join([ColStr]) will result in a str object, not ColStr!
 
-    .. warning ::
+    .. warning::
         The color markers are 'attached' to the following character (if
         there is any). If that character is sliced out, the color will
         disappear. If this behaviour poses an issue, open an issue for

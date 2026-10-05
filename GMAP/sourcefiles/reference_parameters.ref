@@ -77,6 +77,7 @@ number_frames[int]                                999999999
 stop_frame[int]                                   999999999
 time_limit[int]                                   999999  # 2y in minutes
 batch_size[int]                                   25  # frames before time appl
+number_cores(nc)[int]                             1
 
 
 # ----- Choosing what the program outputs look like -----

@@ -1,4 +1,4 @@
-# Here is the tresp charge for Chl_a
+# Here is the TrEsp charge for Chl_a
 -0.021674   #   MG
 0.106779    #   CHA
 -0.048696   #   CHB

@@ -12,12 +12,12 @@ version = "0.0.1"
 classifiers = [
     "Programming Language :: Python :: 3"
 ]
-requires-python = ">= 3.10"
+requires-python = ">= 3.10, < 3.14"
 dependencies = [
   "colorama >= 0.4.6",
   "MDAnalysis >= 0.20",
-  "numba >= 0.58, < 0.61",
-  "numpy >= 1.22, <= 1.26",
+  "numba >= 0.58",
+  "numpy >= 1.22",
 ]
 
 [project.optional-dependencies]

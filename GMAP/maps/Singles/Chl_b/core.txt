@@ -34,4 +34,4 @@ multiply_freq GM_con.e2i4pieps_angcm  # 116140.9733/2
 
 # position and double position should maybe correspond to Mg (needed to have pos and dbp)
 
-TRESP.charges_filename TRESP_chlb.txt
+TrEsp.charges_filename TrEsp_chlb.txt

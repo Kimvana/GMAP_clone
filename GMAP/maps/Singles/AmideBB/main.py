@@ -273,12 +273,12 @@ def GM_post_init(map_, system):
     MC_nm.read_maps(map_)
     MC_cm.determine_maps(oscillator_list, map_, system)
 
-    if "TRESP" in main_runpars.requested_pairmapdict.keys():
-        trespmap = main_runpars.requested_pairmapdict["TRESP"]
-        map_.rawcore["TRESP.charges_filename"] = ["TRESP_gen.txt"]
-        map_.core.TRESP_gen_charges = trespmap.code.get_charges(trespmap, map_)
-        map_.rawcore["TRESP.charges_filename"] = ["TRESP_pro.txt"]
-        map_.core.TRESP_pro_charges = trespmap.code.get_charges(trespmap, map_)
+    if "TrEsp" in main_runpars.requested_pairmapdict.keys():
+        trespmap = main_runpars.requested_pairmapdict["TrEsp"]
+        map_.rawcore["TrEsp.charges_filename"] = ["TrEsp_gen.txt"]
+        map_.core.TrEsp_gen_charges = trespmap.code.get_charges(trespmap, map_)
+        map_.rawcore["TrEsp.charges_filename"] = ["TrEsp_pro.txt"]
+        map_.core.TrEsp_pro_charges = trespmap.code.get_charges(trespmap, map_)
 
     if not map_.success:
         GM_pt.Printer.warning(
@@ -416,11 +416,11 @@ def GM_str_osc(map_, system, oscillator):
     )
 
 
-def CP_TRESP_get_charges(map_, system, osc):
+def CP_TrEsp_get_charges(map_, system, osc):
     if osc.resnames[1] == "PRO":
-        return map_.core.TRESP_pro_charges
+        return map_.core.TrEsp_pro_charges
     else:
-        return map_.core.TRESP_gen_charges
+        return map_.core.TrEsp_gen_charges
 
 
 def GM_calculate_frequency(map_, system, osc):

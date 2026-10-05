@@ -767,7 +767,7 @@ class PairMap(Map):
 
         Some pair-wise maps require other content to be present. For
         example, a specialized coupling could need additional
-        information about an oscillator, such as TRESP needing the delQ.
+        information about an oscillator, such as TrEsp needing the delQ.
         Such mappings can list certain keywords or functions that they
         can interpret which singles must have before they can be
         coupled.

@@ -60,6 +60,7 @@ number_frames                   999999999
 stop_frame                      999999999
 time_limit                      999999  # 2y in minutes
 batch_size                      25  # frames before time appl
+number_cores                    1
 
 profiler                        False
 profiler_graph                  False

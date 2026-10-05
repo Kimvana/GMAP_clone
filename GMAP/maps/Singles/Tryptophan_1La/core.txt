@@ -9,7 +9,7 @@ electrostatic_choice V   	# the potential
 
 local_atoms 2-18           # Backbone CONH are included in potential
 
-frequency_gas_phase 38900 	#  
+frequency_gas_phase 33900 	#  Converted from 295 nm as taken from 10.1016/S0006-3495(01)76183-8
 frequency_data_file_linear difference_charges.txt
 
 # Conversion factor for e^2/4 pi epsilon 1161409.733

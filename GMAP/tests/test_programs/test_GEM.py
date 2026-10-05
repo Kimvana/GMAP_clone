@@ -1,4 +1,7 @@
 
+# standard lib imports
+import filecmp
+
 # local imports
 import GMAP.src.tools.cmd_interface as GM_ci
 
@@ -37,3 +40,55 @@ def test_early_quit(tmp_path):
                 assert line.split()[2] == "0-25"
             if line.startswith("Frames available"):
                 assert line.split()[2] == "0-51"
+
+
+def test_parallel_run(tmp_path):
+    # make directories
+    dir_onecore = tmp_path / "onecore"
+    dir_onecore.mkdir()
+    dir_twocore = tmp_path / "twocore"
+    dir_twocore.mkdir()
+
+    # Perform single core run
+    with open(tmp_path / "input_parameters.txt", "w") as fhand:
+        fhand.write("output_directory  onecore\n")
+        fhand.write("log_directory   onecore\n")
+        fhand.write("output_format    bin txt\n")
+        fhand.write("output_data     ham dip ene pos dbp ram\n")
+    GM_ci.cmd_interface([
+        "GMAP", "GEM", "run",
+        str((tmp_path / "input_parameters.txt").resolve())])
+
+    # Perform parallel (2-)core run
+    with open(tmp_path / "input_parameters.txt", "w") as fhand:
+        fhand.write("output_directory  twocore\n")
+        fhand.write("log_directory   twocore\n")
+        fhand.write("output_format    bin txt\n")
+        fhand.write("output_data     ham dip ene pos dbp ram\n")
+    GM_ci.cmd_interface([
+        "GMAP", "GEM", "run",
+        str((tmp_path / "input_parameters.txt").resolve()),
+        "-nc", "2"])
+
+    with open(dir_onecore/"hamiltonian.txt") as fhand:
+        one = fhand.readlines()
+        print(one)
+    with open(dir_twocore/"hamiltonian.txt") as fhand:
+        two = fhand.readlines()
+        print(two)
+
+    print(type(one))
+    print(len(one), len(two))
+    print([line.split()[0] for line in one])
+    print([line.split()[0] for line in two])
+
+    for filename in [
+        "hamiltonian", "dipoles", "energies", "positions", "doublepos",
+        "raman_tensor"
+    ]:
+        for suffix in ["bin", "txt"]:
+            assert filecmp.cmp(
+                dir_onecore / (filename + "." + suffix),
+                dir_twocore / (filename + "." + suffix),
+                shallow=False
+            )

@@ -33,3 +33,5 @@ log.log
 GMAP/tests/test_tools/Data/log.log
 
 
+sphinx_docs/_build.zip
+parGMAP.py

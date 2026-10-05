@@ -117,11 +117,17 @@ class System:
         instead of oscillator objects.
     """
 
-    def __init__(self, run_pars):
+    def __init__(self, run_pars, read_only=False):
         self.universe = gen_universe(run_pars)  # MDA universe creation
-        self.set_properties()  # Extract numpy arrays from MDA universe
+        # Extract numpy arrays from MDA universe
+        self.set_properties(read_only=read_only)
         # see if box has correct size and charge
         self.basic_boxchecks(run_pars)
+
+        # we only want to know basic parameters of the MD system, and don't
+        # want to spend time/effort/resources looking for oscillators.
+        if read_only:
+            return
 
         self.find_influencers(run_pars)  # Find all influencing atoms
 
@@ -184,7 +190,7 @@ class System:
                 )
 
     # TO DO inside!
-    def set_properties(self):
+    def set_properties(self, read_only=False):
         """Sets the basic properties of the system.
 
         Extracts them from self.universe.atoms, and saves them in self.
@@ -213,6 +219,10 @@ class System:
 
         # analogue of AIMs ResidueFinder and IXFinder
         self.residues = Residues(self)
+
+        # Next is for c calc, which we won't run this round.
+        if read_only:
+            return
 
         # C array preparation
         self.positions_c = np.ctypeslib.as_ctypes(np.ravel(self.positions))
@@ -433,11 +443,9 @@ class System:
                 mapgroups.extend(self.find_oscillators_perstruct(struct, map_))
             allgroups.append(mapgroups)
 
-        # feed the found oscillators to the maps, let them have a look
-        # at them / edit.
-
+        # If none are found, report an error. GMAP cannot run if there are
+        # no oscillators present.
         nosc = sum([len(oscillators) for oscillators in allgroups])
-        # GM_pt.Printer.print(2, f"found {self.nosc} oscillators.")
         if nosc == 0:
             GM_pt.Printer.warning(
                 "\nNone of the requested oscillators could be found in the "
@@ -448,17 +456,39 @@ class System:
                 GMAPerrclass=GM_ex.GmapValueError
             )
 
+        # feed the found oscillators to the maps, let them have a look
+        # at them / edit. General, run-independent edits only.
         checked_oscillators = []
+        # allgroups contains one item per Singles map. That item is a list
+        # of oscillator objects.
         for oscillators in allgroups:
             if len(oscillators) == 0:
                 continue
-            map_ = oscillators[0].map
+            map_ = oscillators[0].map  # determine to what map these belong
+            # Provide oscillators of this map only to the map. Allow it to make
+            # any changes it likes (remove/add duplicates, for example).
+            # Important is that what happens here, should *always* happen.
             checked = map_.code.GM_adjust_oscillators(
                 map_, self, oscillators
             )
             if checked:
                 checked_oscillators.append(checked)
 
+        nosc = sum([len(oscillators) for oscillators in allgroups])
+        if nosc == 0:
+            GM_pt.Printer.warning(
+                "\nNone of the requested oscillators could be found in the "
+                "supplied MD system. Either change the choice for the "
+                "parameter maps_to_use, or for the parameters topology_file "
+                "and/or trajectory_file. Quitting!"
+                "MD_SU_7", True,
+                GMAPerrclass=GM_ex.GmapValueError
+            )
+
+        # Same as before, feed the oscillators belonging to a specific map to
+        # that map. Here, run-dependent edits can be made. More specifically,
+        # this is where a map applies the black-/whitelist choices from the
+        # run input file.
         filtered_oscillators = []
         for oscillators in checked_oscillators:
             if len(oscillators) == 0:
@@ -478,13 +508,13 @@ class System:
             oscillator.oscix = oscix
 
         self.nosc = len(self.oscillators)
-        # GM_pt.Printer.print(2, f"found {self.nosc} oscillators.")
         if self.nosc == 0:
             GM_pt.Printer.warning(
                 "\nNone of the requested oscillators could be found in the "
-                "supplied MD system. Either change the choice for the "
-                "parameter maps_to_use, or for the parameters topology_file "
-                "and/or trajectory_file. Quitting!"
+                "supplied MD system. Most likely, one of the criteria defined "
+                "using either 'singles_whitelist' or 'singles_blacklist' is "
+                "too strict. Please make sure the chosen criteria match the "
+                "chosen MD files. Quitting!"
                 "MD_SU_7", True,
                 GMAPerrclass=GM_ex.GmapValueError
             )
@@ -1365,7 +1395,8 @@ def gen_universe(run_pars):
 
     try:
         universe = MDA.Universe(
-            run_pars.topology_file.resolve(), run_pars.trajectory_file.resolve(),
+            run_pars.topology_file.resolve(),
+            run_pars.trajectory_file.resolve(),
             guess_bonds=run_pars.guess_bonds
             # run_pars.topology_file, run_pars.trajectory_file,
             # guess_bonds=run_pars.guess_bonds

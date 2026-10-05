@@ -143,5 +143,5 @@ VEG_reference  residues 0    # take CoM of all atoms in residue which atom 0 of 
 type   standard     # standard, linear
 
 
-TRESP.charges_filename   TRESP_gen.txt
-TRESP.charges_multiply   1
+TrEsp.charges_filename   TrEsp_gen.txt
+TrEsp.charges_multiply   1

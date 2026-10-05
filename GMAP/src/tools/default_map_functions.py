@@ -147,6 +147,7 @@ def filter_single_line(line, BW, found, avail, map_, system):
             else:
                 return True, found.copy()
         case "resnums":
+            # Check whether the choice is alphanumeric
             # we can use/support hyphens, too, but not commas/periods.
             if not set("".join(line[1:])).issubset("1234567890-"):
                 GM_pt.Printer.warning(
@@ -157,6 +158,7 @@ def filter_single_line(line, BW, found, avail, map_, system):
                     "sure to only use numbers and hyphens. ",
                     "SU_NP_8", True, GMAPerrclass=GM_ex.GmapFileSyntaxError
                 )
+            # find all allowed numbers
             try:
                 resnums = set(map_.core.allow_ranges(line[1:], system.nres))
             except IndexError as ierr:
@@ -182,11 +184,7 @@ def filter_single_line(line, BW, found, avail, map_, system):
                     GMAPerrclass=GM_ex.GmapFileSyntaxError
                 )
 
-            # filtered = []
-            # for oscillator in avail:
-            #     if system.resnums[oscillator.used_atoms[0]] in resnums:
-            #         filtered.append(oscillator)
-            # filtered = set(filtered)
+            # only keep an oscillator if its number is expected.
             filtered = {
                 osc for osc in avail
                 if system.resnums[osc.used_atoms[0]] in resnums

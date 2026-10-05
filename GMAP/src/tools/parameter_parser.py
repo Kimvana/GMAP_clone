@@ -450,7 +450,7 @@ class RefPars:
         if usetype is bool:
             if any(
                 x.lower() not in trueicators and x.lower() not in falseicators
-                for x in options+choices
+                for x in options + choices
             ):
                 raise ValueError
             options = [1 if x.lower() in trueicators else 0 for x in options]
@@ -640,7 +640,7 @@ class RawPars:
     gets its own instance of this class, storing the choices specified
     in that source.
 
-    .. warning ::
+    .. warning::
         The basic __init__ of this class is not meant to be used
         standalone. Instead, this class is supposed to be used through
         any of the following constructing classmethods:
@@ -2659,6 +2659,24 @@ class RunPars:
 
         self.estatic_range = np.float32(self.estatic_range)
         self.estatic_smooth_range = np.float32(self.estatic_smooth_range)
+
+    def parallel_dict(self):
+        outdict = {k: getattr(self, k) for k in [
+            "number_cores",
+            "parrun_directory",
+            "output_parameter_filename",
+            "number_frames",
+            "start_frame",
+            "stop_frame",
+            "output_hamiltonian_filename",
+            "output_energies_filename",
+            "output_dipole_filename",
+            "output_raman_filename",
+            "output_positions_filename",
+            "output_doublepos_filename",
+            "log_filename",
+        ]}
+        return outdict
 
 
 def get_parameters(in_parfile, argslist):

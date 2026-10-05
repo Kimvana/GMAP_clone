@@ -69,6 +69,9 @@ The contents of the file should (for now) look like this:
 
 Note that a file like this is great to get an initial feel for the program, but doesn't generate files that are usable for NISE. More information on how to specify parameters in a file like this :ref:`can be found here. <UserGuide_page_specifying_parameters>`
 
+.. hint::
+    The input file above contains only a few of the available parameters. This tutorial introduces a few more later. All available parameters :ref:`can be found here. <UserGuide_page_parameter_overview>`
+
 So, to explain what's happening:
 
 The first two parameters/lines are to tell GEM what input files it should read from. In the example, the files have been specified using relative paths (this is not how GMAP returns paths when printing/logging - those are absolute), which is preferred to make calculations more easily reproducible. More information on these parameters can be found at :ref:`topology_file <UserGuide_page_parameter_overview_topfile>` and :ref:`trajectory_file <UserGuide_page_parameter_overview_trjfile>`.

@@ -76,6 +76,10 @@ class Printer(metaclass=GM_ct.Singleton):
     """
 
     def __init__(self, files):
+        # without this, pytest runs of parallel calculations have a different
+        # stdout (cp1252), leading to errors.
+        sys.stdout.reconfigure(encoding="utf-8")
+
         cls = self.__class__
         # The requested log file name/location is not immediately known, but
         # we still want to log information of the run. As long as the logfile

@@ -7,7 +7,7 @@ import GMAP.src.tools.coding_tools as GM_ct
 import GMAP.src.tools.file_handler as GM_fh
 
 
-class TRESP_Clib(metaclass=GM_ct.Singleton):
+class TrEsp_Clib(metaclass=GM_ct.Singleton):
     """Stores and manages all c functions for this map.
 
     Each (external) function in the library has it's own associated
@@ -20,7 +20,7 @@ class TRESP_Clib(metaclass=GM_ct.Singleton):
     Parameters
     ----------
     map_ : :class:`~GMAP.src.tools.map_reader.PairMap`
-        The TRESP map object in the code - this will be the object that
+        The TrEsp map object in the code - this will be the object that
         gains the new c-library attribute.
 
     Notes
@@ -70,7 +70,7 @@ class TRESP_Clib(metaclass=GM_ct.Singleton):
         Parameters
         ----------
         map_ : :class:`~GMAP.src.tools.map_reader.PairMap`
-            The TRESP map object in the code - this will be the object
+            The TrEsp map object in the code - this will be the object
             that gains the new c-library attribute.
         system : :class:`~GMAP.src.tools.system_reader.System`
             The object that stores everything the program currently
@@ -108,7 +108,7 @@ def init_map_for_clib(map_, system):
     Parameters
     ----------
     map_ : :class:`~GMAP.src.tools.map_reader.PairMap`
-        The TRESP map object in the code - this will be the object that
+        The TrEsp map object in the code - this will be the object that
         gains the new c-library attribute.
     system : :class:`~GMAP.src.tools.system_reader.System`
         The object that stores everything the program currently knows
@@ -117,5 +117,5 @@ def init_map_for_clib(map_, system):
     """
 
     map_.clibfile = map_.directory / "src"
-    map_.clibfile /= "TRESP_clib" + GM_fh.FileLocations.clib_extension
-    map_.clib = TRESP_Clib(map_)
+    map_.clibfile /= "TrEsp_clib" + GM_fh.FileLocations.clib_extension
+    map_.clib = TrEsp_Clib(map_)

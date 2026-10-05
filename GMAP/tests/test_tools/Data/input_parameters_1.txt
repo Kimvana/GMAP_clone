@@ -4,7 +4,7 @@ verbose_logfile 4
 maps_to_use   AmideSC
 AmideBB.include_protein_residues HSD HIE
 
-couplings_to_use TRESP :All
+couplings_to_use TrEsp :All
 # couplings_to_use DipDip :All
 couplings_scale DipDip 1
 

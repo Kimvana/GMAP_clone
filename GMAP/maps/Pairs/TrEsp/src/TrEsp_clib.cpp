@@ -6,10 +6,10 @@
 // Instead, they should be manually included during installation:
 
 // windows (my machine, edit path):
-// cl.exe /LD /Fe: TRESP_clib_Win64bit /I\github\GEMAIM-dev\GMAP\sourcefiles TRESP_clib.cpp
+// cl.exe /LD /Fe: TrEsp_clib_Win64bit /I\github\GEMAIM-dev\GMAP\sourcefiles TrEsp_clib.cpp
 
 // linux (Kai's cluster, edit path):
-// g++ -fPIC -shared -o TRESP_clib_Linux.so -I/scratch/p302934/GMAP_fin/GMAP/GMAP/sourcefiles TRESP_clib.cpp
+// g++ -fPIC -shared -o TrEsp_clib_Linux.so -I/scratch/p302934/GMAP_fin/GMAP/GMAP/sourcefiles TrEsp_clib.cpp
 #include "vectormath.cpp"  // in GMAP sourcefiles directory
 
 #ifdef _WIN32
@@ -28,7 +28,7 @@ extern "C" {
         float *boxvects, int totosc, float fpieps, float *hamiltonian
     ) {
         /*
-        Tresp multiplies the found J by 116141.70590152.
+        TrEsp multiplies the found J by 116141.70590152.
         Why, what is this number?
 
         1/4pieps = 8.9875517862(14) e9 Nm^2C^-2 (coulombs constant)
@@ -68,7 +68,7 @@ extern "C" {
             osc1len = noscats[oscix1];
             osc2len = noscats[oscix2];
 
-            // index in all-atom TRESP arrays
+            // index in all-atom TrEsp arrays
             TRix1 = oscstart[oscix1];
             for (ix1 = 0; ix1 < osc1len; ix1++) {
                 TRix2 = oscstart[oscix2];
