@@ -29,6 +29,15 @@ sys.path.append(str(Path(__file__).parent.parent.resolve()))
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
 html_theme = 'pydata_sphinx_theme'
+html_theme_options = {
+    "github_url": "https://github.com/lacourjansenlab/GMAP",
+    "navbar_end": [
+        "search-button",
+        "theme-switcher",
+        "navbar-icon-links",
+    ],
+    "navbar_persistent": [],
+}
 # html_static_path = ['_static']
 html_favicon = "Figures/temp_logo.ico"
 
