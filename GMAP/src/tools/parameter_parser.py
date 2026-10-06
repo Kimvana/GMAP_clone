@@ -1170,7 +1170,7 @@ class RawPars:
                 "SU_WP_9", True, GMAPerrclass=GM_ex.GmapFileSyntaxError
             )
 
-        # now, correct amount of arguments.
+        # now, correct number of arguments.
         errortext1 = (
             f"\nInvalid choice given for the parameter {printname} "
             f"specified in the file {self.fname}. "
