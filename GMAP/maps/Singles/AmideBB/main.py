@@ -321,7 +321,7 @@ def GM_post_init(map_, system):
         map_.run_pars.labels = set()
     elif len(choice) < 2:
         GM_pt.Printer.warning(
-            "\nInvalid amount of arguments provided for the parameter "
+            "\nInvalid number of arguments provided for the parameter "
             "AmideBB.labels. Please make sure you both provide a mode of "
             "selecting, and a choice for that mode."
             "map_AmideBB_6", True
