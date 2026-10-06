@@ -4,6 +4,8 @@ This is the main version of GMAP. Both the stable release version (main branch) 
 
 GMAP is a package of tools for use in computing spectra from molecular dynamics trajectories. Currently, the main event is GEM, which supports both vibrational and electronic spectroscopy.
 
+[The manual can be found here](https://lacourjansenlab.github.io/GMAP/)
+
 
 on this page:
 - [How to install](#how-to-install-general-users)
@@ -49,6 +51,8 @@ While the instructions work without one, it is definitely good practice to use o
 4. After you're done, you deactivate your environment, just as in step 7 of installation.
 
 ## How to generate the documentation using sphinx:
+A pre-built version of the documentation [can be found here](https://lacourjansenlab.github.io/GMAP/). If you still want to generate it yourself, read on!
+
 Assuming generating from scratch, and inside a venv (see above, always a good habit)
 1. When doing this in a different repository (i.e. no automagical module installs), make sure to run ```pip install sphinx```, ```pip install numpydoc```, and (optionally) ```pip install pydata-sphinx-theme```
 2. Create a directory for all sphinx output using ```mkdir sphinx```. It is preferred this directory lives in the base directory of your project (in case of GMAP, the same directory as where this document is located).
@@ -187,7 +191,7 @@ This might be pedantic, but GMAP is not comparable to AIM. AIM is a program that
 - **Units are dead, long live the units.** GMAP is more flexible using different units than AIM was. The user can specify in which units the output files should be given, and custom-made maps can mention what units their contents assume.
 - **Variable parameters.** This is highly-map specific, but the AmideBB and AmideSC maps are shipped with variable parameters. The angles/magnitudes used by various models can now be changed using those parameters.
 - **Better file management.** A small change can make a huge difference. When GMAP creates new files, it makes sure to not overwrite any old ones of the same name if they already exist. Unless you tell it it should, of course!
-- **Web-based manual.** The GMAP manual is website-based, instead of AIM's pdf text beast. Pages are linked together, and even the full documentation of the codebase can be found (helpful for developers).
+- **Web-based manual.** The GMAP manual is [website-based](https://lacourjansenlab.github.io/GMAP/), instead of AIM's pdf text beast. Pages are linked together, and even the full documentation of the codebase can be found (helpful for developers).
 - **Silencing warnings.** Ever screamed at your PC "I know, stupid thing! But it doesn't matter!"? We have. Now, you can tell the program to not complain/quit at any warning of your choice. However, use it at your own risk, the warnings are there for a reason!
 
 
