@@ -7,8 +7,11 @@ dp2_choice[str]                          C O [N] D Torii
 consider_nearest_neighbours(cnn)[bool]   True
 legacy_mode[str]                         [None] AIM AmideImaps
 solvent[str]                             [D2O] H2O
+shift_base[str]                          0.0
+shift_label[str]                         C13
+labels[list_str]                         None
 
-Torii_dipole_angle[float]                10   # in degrees
+Torii_dipole_angle[float]                10.0   # in degrees
 
 allow_map_mismatch[bool]                 False
 

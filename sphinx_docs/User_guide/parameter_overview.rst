@@ -680,7 +680,7 @@ This parameter gives you more control over what singles/oscillators should be tr
 
 Anything whitelisted will be included, unless a more specific blacklist rule excludes it again.
 
-This parameter takes a variable amount of arguments. If a map doesn't make any changes, there's two or three: ``singles_whitelist [maps] [method] [choice]``
+This parameter takes a variable number of arguments. If a map doesn't make any changes, there's two or three: ``singles_whitelist [maps] [method] [choice]``
 ``maps`` indicates to which map(s) the choice should be applied. ``:All`` applies the filter to all maps used. ``AA`` applies the choice to only the map named 'AA' (use the same names as those used for the parameter maps_to_use), ``AA,BB`` applies it to both the map named 'AA' and the map named 'BB'. You can put any number of maps here, just make sure that there are no white spaces!
 
 .. note::

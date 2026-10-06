@@ -94,7 +94,37 @@ AmideSC.solvent
     no shorthand
     options: D2O, H2O (default = D2O)
 
-    What the solvent of the system should be. The calculation assumes that the hydrogen atom on the nitrogen of the amide bond is of the same type as the solvent. However, the change of weight of the atom is not considered - it's movement and weight are determined by the preceeding MD simulation.
+    What the solvent of the system should be. The calculation assumes that the hydrogen atom on the nitrogen of the amide bond is of the same type as the solvent. However, the change of weight of the atom is not considered - it's movement and weight are determined by the preceeding MD simulation. This parameter influences whether the computed frequencies will be shifted.
+
+AmideSC.shift_base
+    no shorthand
+    options: see text
+
+    What kind of shift should be applied to the frequencies computed for AmideSC groups to account for the isotopes present. This shift will be applied to all groups not specifically selected using the parameter AmideSC.labels.
+    You can either provide a decimal number of choice, or pick one of the following presets (that each come with their corresponding reference in program output):
+
+    'C12', 'C12_O16' and 'natural' all mean to assume the same isotopes as in nature. No shift will be applied, as the maps used all assume these isotopes.
+
+    'C13' and 'C13_O16' are used for C13-labels, for which a redshift of 45 wavenumbers is assumed.
+
+    'C13_O18' is used for a label with both heavy carbon and oxygen, for which a redshift of 59.6 wavenumbers is assumed.
+
+AmideSC.shift_label
+    no shorthand
+    options: same as AmideSC.shift_base
+
+    What kind of shift should be applied to the frequencies computed for AmideSC groups to account for the isotopes present. This shift will be applied to all groups that are specifically selected using the parameter AmideSC.labels.
+
+AmideSC.labels
+    no shorthand
+    options: None, resnum (+ choices), resname (+ choices) (default = None)
+
+    Which aminoacids in the protein should be isotope labelled. By default, no labels are used/assumed. This choice can also be explicitly specified by using 'None'.
+
+    'resnum 2 5' states that the residues numbered 2 and 5 (zero-based) should be considered 'labelled' by the program. Similarly, 'resnum 2-5' states that the residues 2, 3, 4 and 5 (zero-based) should be considered 'labelled' by the program. As long as they are separated by spaces, as many numbers and ranges are allowed. So, the following input line is perfectly valid:
+    'AmideSC.labels resnum 1 3-6 9 10 15-16 18-25 29 32'
+
+    Similarly to 'resnum' the mode 'resname' specifies which residue names should be labelled. As many names can be given as wanted, as long as they are either the cannonical 20 3-letter codes, or any option chosen for the parameter AmideSC.include_protein_residues.
 
 AmideSC.Torii_dipole_angle
     no shorthand
@@ -115,3 +145,8 @@ map_AmideSC_1
 
     Another reason is the fact that the two maps have been developed together with the intention of them working together. That means that to obtain the best results with either one, the other is needed, too.
 
+map_AmideSC_2
+    There is only a few valid options for this parameter, listed higher up in this file. Make sure you match the name, capital letters included, apostrophes excluded. Otherwise, when specifying a decimal number, make sure you only use numbers and a period ('.') to provide this.
+
+map_AmideSC_3
+    Some issue was encountered when parsing the choice for the parameter AmideBB.labels. Unless your choice is 'None' (mind the capitalization!), your choice should specify both a mode (resnums or resnames currently) and a selection using that mode. If there are multiple parts to your selection, they should be separated using spaces just as in the examples.
