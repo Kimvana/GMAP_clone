@@ -30,6 +30,10 @@ sys.path.append(str(Path(__file__).parent.parent.resolve()))
 
 html_theme = 'pydata_sphinx_theme'
 html_theme_options = {
+    "logo": {
+        "image_light": "Figures/GMAP_banner_light.png",
+        "image_dark": "Figures/GMAP_banner_dark.png",
+    },
     "github_url": "https://github.com/lacourjansenlab/GMAP",
     "navbar_end": [
         "search-button",
@@ -39,7 +43,7 @@ html_theme_options = {
     "navbar_persistent": [],
 }
 # html_static_path = ['_static']
-html_favicon = "Figures/temp_logo.ico"
+html_favicon = "Figures/GMAP_ico.ico"
 
 suppress_warnings = ["docutils"]
 
