@@ -1,0 +1,14 @@
+name: build-main
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build-main:
+    runs-on: ubuntu-latest
+    name: building documentation
+    steps:
+    - uses: tuftsrt/sphinx-to-branch@v1.2.2
+      with:
+        source-directory: sphinx_docs
+        environment-file: sphinx_docs/environment.yaml
