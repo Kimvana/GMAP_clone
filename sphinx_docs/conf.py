@@ -13,7 +13,7 @@ from pathlib import Path
 project = 'GMAP'
 copyright = '2023, KE van Adrichem'
 author = 'KE van Adrichem'
-release = '0'
+release = '1.0'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
