@@ -1,8 +1,6 @@
 GMAP.tests.test\_tools package
 ==============================
 
-Submodules
-----------
 
 .. toctree::
    :maxdepth: 4
@@ -22,12 +20,3 @@ Submodules
    GMAP.tests.test_tools.test_reference_handler
    GMAP.tests.test_tools.test_string_classes
    GMAP.tests.test_tools.test_system_reader
-
-Module contents
----------------
-
-.. automodule:: GMAP.tests.test_tools
-   :members:
-   :undoc-members:
-   :show-inheritance:
-   :private-members:

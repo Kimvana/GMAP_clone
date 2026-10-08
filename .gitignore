@@ -8,7 +8,7 @@ env_**
 **.lib
 **.obj
 sphinx_docs/_build/**
-**.png
+**.pdn
 **#
 build/**
 

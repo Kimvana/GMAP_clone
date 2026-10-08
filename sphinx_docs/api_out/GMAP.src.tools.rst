@@ -1,8 +1,6 @@
 GMAP.src.tools package
 ======================
 
-Submodules
-----------
 
 .. toctree::
    :maxdepth: 4
@@ -24,12 +22,3 @@ Submodules
    GMAP.src.tools.reference_handler
    GMAP.src.tools.string_classes
    GMAP.src.tools.system_reader
-
-Module contents
----------------
-
-.. automodule:: GMAP.src.tools
-   :members:
-   :undoc-members:
-   :show-inheritance:
-   :private-members:

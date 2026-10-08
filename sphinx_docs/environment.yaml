@@ -1,0 +1,15 @@
+name: sphinx-env
+channels:
+  - conda-forge
+dependencies:
+  - python=3.13
+  - sphinx=8.2
+  - sphinx-design
+  - pydata-sphinx-theme
+  - numpydoc
+  - matplotlib
+  - MDAnalysis
+  - numba
+  - numpy
+  - pytest
+  - scipy
