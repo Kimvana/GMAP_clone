@@ -37,7 +37,8 @@ repopath = Path(__file__).parent.parent.resolve()
 sys.path.append(str(repopath))
 
 # The name of the current version (in the built docs)
-current_version = os.environ.get("LATEST_VERSION", "stable")
+latest_version = os.environ.get("LATEST_VERSION", "stable")
+source_branch = os.environ.get("SOURCE_BRANCH", "main")
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
@@ -58,7 +59,7 @@ html_theme_options = {
     "navbar_persistent": [],
     "switcher": {
         "json_url": "https://kimvana.github.io/GMAP_clone/stable/_static/switcher.json",
-        "version_match": current_version,
+        "version_match": latest_version,
     },
     "check_switcher": False,
     "show_version_warning_banner": True,
@@ -177,5 +178,5 @@ def linkcode_resolve(domain, info):
         print(fullname)
 
     # Build GitHub URL
-    url = f"https://github.com/lacourjansenlab/GMAP/blob/main/{rel_fn}{linespec}"
+    url = f"https://github.com/kimvana/GMAP_clone/blob/{source_branch}/{rel_fn}{linespec}"
     return url
