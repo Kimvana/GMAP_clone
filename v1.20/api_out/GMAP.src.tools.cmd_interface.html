@@ -7,7 +7,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>GMAP.src.tools.cmd_interface module &#8212; GMAP v1.20.1 documentation</title>
+    <title>GMAP.src.tools.cmd_interface module &#8212; GMAP v1.20.2 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
 
-    <script src="../_static/documentation_options.js?v=253cf858"></script>
+    <script src="../_static/documentation_options.js?v=12c47232"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
@@ -46,7 +46,7 @@
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.23.0';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://kimvana.github.io/GMAP_clone/stable/_static/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'v1.21';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'v1.20';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             true;
         </script>
@@ -132,8 +132,8 @@
       
     
     
-    <img src="../_static/GMAP_banner_light.png" class="logo__image only-light" alt="GMAP v1.20.1 documentation - Home"/>
-    <img src="../_static/GMAP_banner_dark.png" class="logo__image only-dark pst-js-only" alt="GMAP v1.20.1 documentation - Home"/>
+    <img src="../_static/GMAP_banner_light.png" class="logo__image only-light" alt="GMAP v1.20.2 documentation - Home"/>
+    <img src="../_static/GMAP_banner_dark.png" class="logo__image only-dark pst-js-only" alt="GMAP v1.20.2 documentation - Home"/>
   
   
 </a></div>
@@ -544,13 +544,13 @@
 <span id="gmap-src-tools-cmd-interface-module"></span><h1>GMAP.src.tools.cmd_interface module<a class="headerlink" href="#module-GMAP.src.tools.cmd_interface" title="Link to this heading">#</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="GMAP.src.tools.cmd_interface._report_unknown_choice">
-<span class="sig-prename descclassname"><span class="pre">GMAP.src.tools.cmd_interface.</span></span><span class="sig-name descname"><span class="pre">_report_unknown_choice</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/kimvana/GMAP_clone/blob/v1.20.1/GMAP/src/tools/cmd_interface.py#L12-L19"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GMAP.src.tools.cmd_interface._report_unknown_choice" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">GMAP.src.tools.cmd_interface.</span></span><span class="sig-name descname"><span class="pre">_report_unknown_choice</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/kimvana/GMAP_clone/blob/v1.20.2/GMAP/src/tools/cmd_interface.py#L12-L19"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GMAP.src.tools.cmd_interface._report_unknown_choice" title="Link to this definition">#</a></dt>
 <dd><p>Wrapper for warning call SU_GM_1.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="GMAP.src.tools.cmd_interface.calldict">
-<span class="sig-prename descclassname"><span class="pre">GMAP.src.tools.cmd_interface.</span></span><span class="sig-name descname"><span class="pre">calldict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callcommand</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/kimvana/GMAP_clone/blob/v1.20.1/GMAP/src/tools/cmd_interface.py#L73-L106"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GMAP.src.tools.cmd_interface.calldict" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">GMAP.src.tools.cmd_interface.</span></span><span class="sig-name descname"><span class="pre">calldict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callcommand</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/kimvana/GMAP_clone/blob/v1.20.2/GMAP/src/tools/cmd_interface.py#L73-L106"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GMAP.src.tools.cmd_interface.calldict" title="Link to this definition">#</a></dt>
 <dd><p>Create a dict off of the call command.</p>
 <p>Naive logic leads the keys to be a string starting with ‘-’, and the
 values to be the choices. Values can be empty lists. The first entry
@@ -573,7 +573,7 @@ is different - its the program call!</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="GMAP.src.tools.cmd_interface.cmd_interface">
-<span class="sig-prename descclassname"><span class="pre">GMAP.src.tools.cmd_interface.</span></span><span class="sig-name descname"><span class="pre">cmd_interface</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callcommand</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/kimvana/GMAP_clone/blob/v1.20.1/GMAP/src/tools/cmd_interface.py#L22-L70"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GMAP.src.tools.cmd_interface.cmd_interface" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">GMAP.src.tools.cmd_interface.</span></span><span class="sig-name descname"><span class="pre">cmd_interface</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callcommand</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/kimvana/GMAP_clone/blob/v1.20.2/GMAP/src/tools/cmd_interface.py#L22-L70"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GMAP.src.tools.cmd_interface.cmd_interface" title="Link to this definition">#</a></dt>
 <dd><p>Directs the user to the correct program.</p>
 <p>Interpret what program the user would like to use, and direct the
 order to it. Or, when requested, print the help of GMAP or that of
@@ -591,7 +591,7 @@ actually requested from the program.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="GMAP.src.tools.cmd_interface.cmd_to_help">
-<span class="sig-prename descclassname"><span class="pre">GMAP.src.tools.cmd_interface.</span></span><span class="sig-name descname"><span class="pre">cmd_to_help</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">allhelps</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subch</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/kimvana/GMAP_clone/blob/v1.20.1/GMAP/src/tools/cmd_interface.py#L205-L225"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GMAP.src.tools.cmd_interface.cmd_to_help" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">GMAP.src.tools.cmd_interface.</span></span><span class="sig-name descname"><span class="pre">cmd_to_help</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">allhelps</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subch</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/kimvana/GMAP_clone/blob/v1.20.2/GMAP/src/tools/cmd_interface.py#L205-L225"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GMAP.src.tools.cmd_interface.cmd_to_help" title="Link to this definition">#</a></dt>
 <dd><p>Determines what help to print.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -608,7 +608,7 @@ help to be printed.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="GMAP.src.tools.cmd_interface.cmd_to_tools">
-<span class="sig-prename descclassname"><span class="pre">GMAP.src.tools.cmd_interface.</span></span><span class="sig-name descname"><span class="pre">cmd_to_tools</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">allhelps</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callcommand</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">choice</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subch</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/kimvana/GMAP_clone/blob/v1.20.1/GMAP/src/tools/cmd_interface.py#L228-L250"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GMAP.src.tools.cmd_interface.cmd_to_tools" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">GMAP.src.tools.cmd_interface.</span></span><span class="sig-name descname"><span class="pre">cmd_to_tools</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">allhelps</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callcommand</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">choice</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subch</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/kimvana/GMAP_clone/blob/v1.20.2/GMAP/src/tools/cmd_interface.py#L228-L250"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GMAP.src.tools.cmd_interface.cmd_to_tools" title="Link to this definition">#</a></dt>
 <dd><p>Determines which tool to invoke.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -630,7 +630,7 @@ actually requested from the program.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="GMAP.src.tools.cmd_interface.get_safe_dark">
-<span class="sig-prename descclassname"><span class="pre">GMAP.src.tools.cmd_interface.</span></span><span class="sig-name descname"><span class="pre">get_safe_dark</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all_args</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/kimvana/GMAP_clone/blob/v1.20.1/GMAP/src/tools/cmd_interface.py#L109-L157"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GMAP.src.tools.cmd_interface.get_safe_dark" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">GMAP.src.tools.cmd_interface.</span></span><span class="sig-name descname"><span class="pre">get_safe_dark</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all_args</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/kimvana/GMAP_clone/blob/v1.20.2/GMAP/src/tools/cmd_interface.py#L109-L157"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GMAP.src.tools.cmd_interface.get_safe_dark" title="Link to this definition">#</a></dt>
 <dd><p>Determine whether the program has been requested to run in safe
 or dark mode</p>
 <dl class="field-list simple">
@@ -655,7 +655,7 @@ chosen for a dark background)</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="GMAP.src.tools.cmd_interface.main">
-<span class="sig-prename descclassname"><span class="pre">GMAP.src.tools.cmd_interface.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/kimvana/GMAP_clone/blob/v1.20.1/GMAP/src/tools/cmd_interface.py#L253-L261"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GMAP.src.tools.cmd_interface.main" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">GMAP.src.tools.cmd_interface.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/kimvana/GMAP_clone/blob/v1.20.2/GMAP/src/tools/cmd_interface.py#L253-L261"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GMAP.src.tools.cmd_interface.main" title="Link to this definition">#</a></dt>
 <dd><p>The entrypoint for the entire GMAP program. GMAP aliases here.</p>
 <p>Collects the command line instructions, and passes them to the
 function interpreting these.</p>
@@ -663,7 +663,7 @@ function interpreting these.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="GMAP.src.tools.cmd_interface.print_logo">
-<span class="sig-prename descclassname"><span class="pre">GMAP.src.tools.cmd_interface.</span></span><span class="sig-name descname"><span class="pre">print_logo</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/kimvana/GMAP_clone/blob/v1.20.1/GMAP/src/tools/cmd_interface.py#L160-L202"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GMAP.src.tools.cmd_interface.print_logo" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">GMAP.src.tools.cmd_interface.</span></span><span class="sig-name descname"><span class="pre">print_logo</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/kimvana/GMAP_clone/blob/v1.20.2/GMAP/src/tools/cmd_interface.py#L160-L202"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GMAP.src.tools.cmd_interface.print_logo" title="Link to this definition">#</a></dt>
 <dd><p>Prints the program logo and corresponding text.</p>
 </dd></dl>
 
