@@ -63,6 +63,7 @@ html_theme_options = {
     },
     "check_switcher": False,
     "show_version_warning_banner": True,
+    "sticky_banners": True,
 }
 html_static_path = ['_static']
 html_favicon = "Figures/GMAP_ico.ico"

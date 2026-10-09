@@ -92,12 +92,14 @@ jobs:
             entries.append({
                 "name": tag,
                 "version": tag,
+                "release": tag,
                 "url": f"{base_url}/{tag}/"
             })
 
         entries[ix_stable + skip_n] = {
             "name": f"{tags_versioned[ix_stable]} (stable)",
             "version": tags_versioned[ix_stable],
+            "release": tags_versioned[ix_stable],
             "url": f"{base_url}/stable/",
             "preferred": True
         }
