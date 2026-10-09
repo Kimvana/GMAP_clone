@@ -14,7 +14,7 @@ from pathlib import Path
 project = 'GMAP'
 copyright = '2023, KE van Adrichem'
 author = 'KE van Adrichem'
-release = '1.0'
+release = '1.0'  # will be overwritten
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
@@ -41,8 +41,10 @@ latest_version = os.environ.get("LATEST_VERSION", "stable")
 source_branch = os.environ.get("SOURCE_BRANCH", "main")
 if source_branch == "development":
     version_match = "dev"
+    release = "dev"
 else:
     version_match = latest_version
+    release = source_branch
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
