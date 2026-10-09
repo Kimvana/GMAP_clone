@@ -146,20 +146,17 @@ jobs:
     - name: sphinx-build
       shell: bash -el {0}
       run: |
+        sphinx-build -E source/sphinx_docs destination/$CURRENT_VERSION
+    - name: nojekyll and commit
+      run: |
         cd destination
         pwd
         ls
         touch .nojekyll
-        cd ..
-        echo "running sphinx builder"
-        sphinx-build -E source/sphinx_docs destination/$CURRENT_VERSION
-        pwd
-        ls
-        cd destination
-        pwd
-        ls
+        git add .nojekyll
         git add $CURRENT_VERSION
         git commit -m "Built sphinx docs for version $CURRENT_VERSION"
+        
     - name: Redirect stable to new release
       if: ${{ env.DO_SYMLINK == 'True'}}
       # The below ln command will try to symlink to a (probably) non-existent
@@ -176,7 +173,7 @@ jobs:
         cd v1.7
         pwd
         ls
-        cd ../v1.10
+        cd ../v1.11
         pwd
         ls
         cd ..
