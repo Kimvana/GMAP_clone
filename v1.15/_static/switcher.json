@@ -1,0 +1,88 @@
+[
+    {
+        "name": "development",
+        "version": "development",
+        "url": "https://kimvana.github.io/GMAP_clone/development/"
+    },
+    {
+        "name": "v1.15 (stable)",
+        "version": "v1.15",
+        "url": "https://kimvana.github.io/GMAP_clone/stable/",
+        "preferred": true
+    },
+    {
+        "name": "v1.14",
+        "version": "v1.14",
+        "url": "https://kimvana.github.io/GMAP_clone/v1.14/"
+    },
+    {
+        "name": "v1.13",
+        "version": "v1.13",
+        "url": "https://kimvana.github.io/GMAP_clone/v1.13/"
+    },
+    {
+        "name": "v1.12",
+        "version": "v1.12",
+        "url": "https://kimvana.github.io/GMAP_clone/v1.12/"
+    },
+    {
+        "name": "v1.11",
+        "version": "v1.11",
+        "url": "https://kimvana.github.io/GMAP_clone/v1.11/"
+    },
+    {
+        "name": "v1.10",
+        "version": "v1.10",
+        "url": "https://kimvana.github.io/GMAP_clone/v1.10/"
+    },
+    {
+        "name": "v1.9",
+        "version": "v1.9",
+        "url": "https://kimvana.github.io/GMAP_clone/v1.9/"
+    },
+    {
+        "name": "v1.8",
+        "version": "v1.8",
+        "url": "https://kimvana.github.io/GMAP_clone/v1.8/"
+    },
+    {
+        "name": "v1.7",
+        "version": "v1.7",
+        "url": "https://kimvana.github.io/GMAP_clone/v1.7/"
+    },
+    {
+        "name": "v1.6",
+        "version": "v1.6",
+        "url": "https://kimvana.github.io/GMAP_clone/v1.6/"
+    },
+    {
+        "name": "v1.5",
+        "version": "v1.5",
+        "url": "https://kimvana.github.io/GMAP_clone/v1.5/"
+    },
+    {
+        "name": "v1.4",
+        "version": "v1.4",
+        "url": "https://kimvana.github.io/GMAP_clone/v1.4/"
+    },
+    {
+        "name": "v1.3",
+        "version": "v1.3",
+        "url": "https://kimvana.github.io/GMAP_clone/v1.3/"
+    },
+    {
+        "name": "v1.2",
+        "version": "v1.2",
+        "url": "https://kimvana.github.io/GMAP_clone/v1.2/"
+    },
+    {
+        "name": "v1.1",
+        "version": "v1.1",
+        "url": "https://kimvana.github.io/GMAP_clone/v1.1/"
+    },
+    {
+        "name": "v1.0",
+        "version": "v1.0",
+        "url": "https://kimvana.github.io/GMAP_clone/v1.0/"
+    }
+]
