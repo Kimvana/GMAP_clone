@@ -426,6 +426,7 @@
 <li class="toctree-l1"><a class="reference internal" href="code_style.html">Code Style</a></li>
 <li class="toctree-l1"><a class="reference internal" href="print_colors.html">Print Colors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="VScode_setup.html">VS code setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="GMAP_and_parameters.html">How GMAP analyses parameter files to find run_pars</a></li>
 <li class="toctree-l1"><a class="reference internal" href="estatic_methods.html">Ways of calculating electrostatic properties</a></li>
 </ul>
@@ -547,6 +548,16 @@
 <div class="sd-col sd-d-flex-row sd-mt-0 sd-mb-3 sd-ml-0 sd-mr-0 docutils">
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
 <div class="sd-card-header docutils">
+<p class="sd-card-text"><strong>Documentation</strong></p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Everything pertaining to the new documentation</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="documentation.html"><span class="doc">Documentation</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row sd-mt-0 sd-mb-3 sd-ml-0 sd-mr-0 docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-header docutils">
 <p class="sd-card-text"><strong>File scanning for RunPar</strong></p>
 </div>
 <div class="sd-card-body docutils">
@@ -595,13 +606,13 @@
 </ul>
 </section>
 <section id="workflow-for-any-developer-on-the-project">
-<h2>Workflow for any developer on the project<a class="headerlink" href="#workflow-for-any-developer-on-the-project" title="Link to this heading">#</a></h2>
+<span id="devguide-page-home-workflow"></span><h2>Workflow for any developer on the project<a class="headerlink" href="#workflow-for-any-developer-on-the-project" title="Link to this heading">#</a></h2>
 <p>You’d like to contribute to the development of GMAP? Nice! Thanks! Here is the general workflow everyone should use, to maintain the current project structure.</p>
 <ul class="simple">
 <li><p><strong>Pick a task.</strong> What will you do? Usually, this means choosing an issue from the issue page (or project board) and <em>reading it well.</em> If you’re unsure what to do, ask one of the other developers! Make sure to add your name to the issue, so others know you’re tackling it!</p></li>
 <li><p><strong>Make a plan.</strong> How are you going to solve the issue? Sometimes, it might be useful to discuss with other developers about how to go about it.</p></li>
 <li><p><strong>Create a branch.</strong> On github, for the issue, you can create a separate branch. The auto-suggested name by github (equals the name of the issue) is the one you should use.</p></li>
-<li><p><strong>Keep up to date from main.</strong> If you notice anything happening there, pull the updates (GH desktop has the tab branch -&gt; update from main). Keep doing this during all steps to come!</p></li>
+<li><p><strong>Keep up to date from development.</strong> If you notice anything happening there, pull the updates (GH desktop has the tab branch -&gt; compare to branch). Keep doing this during all steps to come! In GH desktop, in the ‘compare to branch’ window, you can see in the bottom left that you will be pulling development to your personal branch.</p></li>
 <li><p><strong>Do the thing.</strong> Usually, this is coding, sometimes, it’s something else.</p></li>
 <li><p><strong>Prettify.</strong> This could mean many things. Make sure you adhere to the general rules when writing code listed above (including PEP8 code style), you removed commented lines of code, fixed spelling/grammar issues, etc.</p></li>
 <li><p><strong>Documentation.</strong> Nice that you did the thing, but others should know about it. Make sure that your changes are well documented. This means:</p>
@@ -619,8 +630,8 @@
 </ul>
 </li>
 <li><p><strong>Prettify, pt2.</strong> You’ve probably done more work since the last prettifying step, so lets do a final round. See instructions in the first prettifying step!</p></li>
-<li><p><strong>Update from main.</strong> Make sure you are still up to date. If not, and you take changes from main, do the tests and prettifying again!</p></li>
-<li><p><strong>Pull request.</strong> Open a pull request to merge your changes to the main branch. Make sure to add 2 reviewers, and resolve any issues they might have. When they are happy, you can merge to main.</p></li>
+<li><p><strong>Update from development.</strong> Make sure you are still up to date. If not, and you take changes from development, do the tests and prettifying again!</p></li>
+<li><p><strong>Pull request.</strong> Open a pull request to merge your changes to the <strong>development</strong> branch. Make sure to add 2 reviewers, and resolve any issues they might have. When they are happy, you can merge to main.</p></li>
 <li><p><strong>Celebrate!</strong> Congratulations, you’re done!</p></li>
 </ul>
 </section>
