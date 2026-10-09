@@ -93,7 +93,10 @@ jobs:
       # directory. Tests on our linux cluster showed that this does generate
       # a link without errors, the link will just be broken/nonfunctional.
       run: |
-        echo "Redirecting stable to newly released version" 
+        echo "Redirecting stable to newly released version"
+        pwd
+        cd gh-pages
+        pwd
         ln -sf $LATEST_VERSION stable
         git add stable
         git commit -m "redirect stable to new version $LATEST_VERSION"
