@@ -1,4 +1,5 @@
 import inspect
+import os
 import sys
 from pathlib import Path
 
@@ -29,8 +30,14 @@ extensions = [
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
+# -- Variables needed in functions -------------------------------------------
+
+# the path of the base repository folder
 repopath = Path(__file__).parent.parent.resolve()
 sys.path.append(str(repopath))
+
+# The name of the current version (in the built docs)
+current_version = os.environ.get("RELEASE_VERSION", "latest")
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
@@ -45,9 +52,15 @@ html_theme_options = {
     "navbar_end": [
         "search-button",
         "theme-switcher",
+        "version-switcher",
         "navbar-icon-links",
     ],
     "navbar_persistent": [],
+    "switcher": {
+        "json_url": "https://kimvana.github.io/GMAP_clone/latest/_static/switcher.json",
+        "version_match": current_version,
+    },
+    "check_switcher": False,
 }
 # html_static_path = ['_static']
 html_favicon = "Figures/GMAP_ico.ico"

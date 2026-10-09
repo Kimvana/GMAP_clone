@@ -2,13 +2,164 @@ name: build-main
 on:
   push:
     branches:
-      - main
+      - development
+  release:
+    types: [published]
+
+
+# Steps and why:
+# - Determine current branch
+#   To know the 'source' of the workflow.
+# - Checkout repository
+#   To know what tags are available
+# - Determine latest doc version
+#   A lot happens here:
+#   - fetch tags (to prevent the rare instance where the tag of the current
+#     release wasn't added in time)
+#   - Determine the latest stable version for correct symlinking
+#   - Determine the correct label for the current version being built
+#   - Determine whether the symlink needs to be updated.
+# - Checkout gh-pages
+# - Redirect stable to new release
+#   In the gh-pages branch, we create a symlink named 'stable' referring to
+#   the latest stable found in the python step prior
+# - Checkout source branch
+# - Write switcher json
+# - build sphinx docs
+
 jobs:
   build-main:
     runs-on: ubuntu-latest
     name: building documentation
     steps:
-    - uses: tuftsrt/sphinx-to-branch@v1.2.2
+    - name: Determine current branch
+      # ref_name will contain either the branch name ('development') or the tag
+      # chosen for the triggering release. Checking out a tag (e.g. 1.0) will
+      # result in checking out to a detached HEAD corresponding to the commit
+      # on which the release was based.
+      run: echo "SOURCE_BRANCH=${{ github.ref_name }}" >> $GITHUB_ENV
+    - name: Checkout repository
+      uses: actions/checkout@v4
       with:
+        fetch-depth: 0  # required for correctly fetching release tags
+    - name: Determine latest doc version
+      run: |
+        python - <<EOF
+
+        import os
+        import subprocess
+
+        def get_version(source_branch):
+            if source_branch == "development":
+                return source_branch
+            else:
+                return ".".join(source_branch.split(".")[:2])
+
+        subprocess.run(["git", "fetch", "--tags"])
+        try:
+            tags_raw = subprocess.check_output(["git", "tag", "-l", "--sort=-v:refname"]).decode("utf-8")
+            tags = [t.strip() for t in tags_raw.split("\n") if t.strip()]
+        except Exception:
+            tags = []
+        tags_minor = [get_version(tag) for tag in tags]
+
+        source_branch = os.environ.get("SOURCE_BRANCH")
+        env_file = os.environ.get("GITHUB_ENV")
+        current_version = get_version(source_branch)
+        with open(env_file, "a") as fhand:
+            fhand.write(f"LATEST_VERSION={tags_minor[0]}\n")
+            fhand.write(f"CURRENT_VERSION={current_version}\n")
+            if current_version == tags_minor[0] and tags_minor.count(tags_minor[0]) == 1:
+                fhand.write("DO_COMMIT=True\n")
+            else:
+                fhand.write("DO_COMMIT=False\n")
+
+        EOF
+    - name: Checkout gh-pages branch
+      # only do this if this is the first occurrence of this minor version
+      # (and thus, a new alias is required)
+      if: ${{ env.DO_COMMIT == 'True'}}
+      uses: actions/checkout@v6
+      with:
+        ref: gh-pages
+        path: gh-pages
+    - name: Redirect stable to new release
+      if: ${{ env.DO_COMMIT == 'True'}}
+      # The below ln command will try to symlink to a (probably) non-existent
+      # directory. Tests on our linux cluster showed that this does generate
+      # a link without errors, the link will just be broken/nonfunctional.
+      run: |
+        echo "Redirecting stable to newly released version" 
+        ln -sf $LATEST_VERSION stable
+        git add stable
+        git commit -m "redirect stable to new version $LATEST_VERSION"
+      # The above commit will be committed to the checked-out branch gh-pages.
+      # The tuftsrt workflow, in the file setup-destination.sh, will pull all
+      # changes to the destination branch (gh-pages) before building the docs.
+      # Therefore, this commit will be pushed by tuftsrt's push after building.
+    - name: Checkout source branch
+      uses: actions/checkout@v6
+      with:
+        ref: ${{ env.SOURCE_BRANCH }}
+    - name: Write switcher json
+      run: |
+        python - <<EOF
+
+        import json
+        import os
+        from pathlib import Path
+        import subprocess
+
+        def get_version(source_branch):
+            if source_branch == "development":
+                return source_branch
+            else:
+                return ".".join(source_branch.split(".")[:2])
+
+        try:
+            tags_raw = subprocess.check_output(["git", "tag", "-l", "--sort=-v:refname"]).decode("utf-8")
+            tags = [t.strip() for t in tags_raw.split("\n") if t.strip()]
+        except Exception:
+            tags = []
+        tags = list(dict.fromkeys([get_version(tag) for tag in tags]))
+
+        base_url = "https://lacourjansenlab.github.io/GMAP"
+        entries = [
+            {
+                "name": "development",
+                "version": "development",
+                "url": f"{base_url}/development/"
+            }, {
+                "name": f"{tags[0]} (stable)",
+                "version": tags[0],
+                "url": f"{base_url}/stable/",
+                "preferred": True
+            },
+        ]
+
+        for tag in tags[1:]:
+            entries.append({
+                "name": tag,
+                "version": tag,
+                "url": f"{base_url}/{tag}/"
+            })
+
+        Path("sphinx_docs/_static").mkdir(exist_ok=True)
+        with open("sphinx_docs/_static/switcher.json", "w") as fhand:
+            json.dump(entries, fhand, indent=4)
+
+        EOF
+    # TODO (like from example) (also add 'preferred' label and (stable) at name)
+    - name: build sphinx docs
+      uses: tuftsrt/sphinx-to-branch@v1.2.2
+      # env:
+      #   RELEASE_VERSION: ${{ env.RELEASE_VERSION }}
+      with:
+        source-branch: ${{ env.SOURCE_BRANCH }}
         source-directory: sphinx_docs
+        destination-branch: gh-pages
+        destination-directory: ${{ env.CURRENT_VERSION }}
         environment-file: sphinx_docs/environment.yaml
+        # We need to clear the directory we're building to in case there was
+        # a version built for it before.
+        remove-items: ${{ env.CURRENT_VERSION }}/*
