@@ -7,7 +7,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>GMAP.src.programs.GEM module &#8212; GMAP v1.20.0 documentation</title>
+    <title>GMAP.src.programs.GEM module &#8212; GMAP v1.20.1 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
 
-    <script src="../_static/documentation_options.js?v=81447c41"></script>
+    <script src="../_static/documentation_options.js?v=253cf858"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
@@ -46,7 +46,7 @@
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.23.0';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://kimvana.github.io/GMAP_clone/stable/_static/switcher.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'v1.20';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'v1.21';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             true;
         </script>
@@ -132,8 +132,8 @@
       
     
     
-    <img src="../_static/GMAP_banner_light.png" class="logo__image only-light" alt="GMAP v1.20.0 documentation - Home"/>
-    <img src="../_static/GMAP_banner_dark.png" class="logo__image only-dark pst-js-only" alt="GMAP v1.20.0 documentation - Home"/>
+    <img src="../_static/GMAP_banner_light.png" class="logo__image only-light" alt="GMAP v1.20.1 documentation - Home"/>
+    <img src="../_static/GMAP_banner_dark.png" class="logo__image only-dark pst-js-only" alt="GMAP v1.20.1 documentation - Home"/>
   
   
 </a></div>
@@ -565,12 +565,12 @@ in the corresponding .emap file.</p>
 <p>For more information, check the manual on N/A.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="GMAP.src.programs.GEM.GEM">
-<span class="sig-prename descclassname"><span class="pre">GMAP.src.programs.GEM.</span></span><span class="sig-name descname"><span class="pre">GEM</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callcommand</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/kimvana/GMAP_clone/blob/v1.20.0/GMAP/src/programs/GEM.py#L915-L943"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GMAP.src.programs.GEM.GEM" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">GMAP.src.programs.GEM.</span></span><span class="sig-name descname"><span class="pre">GEM</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callcommand</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/kimvana/GMAP_clone/blob/v1.20.1/GMAP/src/programs/GEM.py#L915-L943"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GMAP.src.programs.GEM.GEM" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="GMAP.src.programs.GEM.early_stop">
-<span class="sig-prename descclassname"><span class="pre">GMAP.src.programs.GEM.</span></span><span class="sig-name descname"><span class="pre">early_stop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">framenum</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">run_pars</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/kimvana/GMAP_clone/blob/v1.20.0/GMAP/src/programs/GEM.py#L198-L234"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GMAP.src.programs.GEM.early_stop" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">GMAP.src.programs.GEM.</span></span><span class="sig-name descname"><span class="pre">early_stop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">framenum</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">run_pars</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/kimvana/GMAP_clone/blob/v1.20.1/GMAP/src/programs/GEM.py#L198-L234"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GMAP.src.programs.GEM.early_stop" title="Link to this definition">#</a></dt>
 <dd><p>Determines whether to stop the calculation early, or to continue.</p>
 <p>This decision is based on the amount of remaining time, used time,
 and frame batch size. Basically, the program divides all frames to
@@ -585,7 +585,7 @@ the program to finish things off after the last batch.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="GMAP.src.programs.GEM.main">
-<span class="sig-prename descclassname"><span class="pre">GMAP.src.programs.GEM.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callcommand</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/kimvana/GMAP_clone/blob/v1.20.0/GMAP/src/programs/GEM.py#L953-L965"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GMAP.src.programs.GEM.main" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">GMAP.src.programs.GEM.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callcommand</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/kimvana/GMAP_clone/blob/v1.20.1/GMAP/src/programs/GEM.py#L953-L965"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GMAP.src.programs.GEM.main" title="Link to this definition">#</a></dt>
 <dd><p>Fakes behaviour as if called from __main__.</p>
 <p>During normal operation (user types ‘GMAP …’ in the command line),
 this function should never be called. This function replicates the
@@ -594,7 +594,7 @@ this function should never be called. This function replicates the
 
 <dl class="py function">
 <dt class="sig sig-object py" id="GMAP.src.programs.GEM.manage_frame">
-<span class="sig-prename descclassname"><span class="pre">GMAP.src.programs.GEM.</span></span><span class="sig-name descname"><span class="pre">manage_frame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">run_pars</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/kimvana/GMAP_clone/blob/v1.20.0/GMAP/src/programs/GEM.py#L56-L105"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GMAP.src.programs.GEM.manage_frame" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">GMAP.src.programs.GEM.</span></span><span class="sig-name descname"><span class="pre">manage_frame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">run_pars</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/kimvana/GMAP_clone/blob/v1.20.1/GMAP/src/programs/GEM.py#L56-L105"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GMAP.src.programs.GEM.manage_frame" title="Link to this definition">#</a></dt>
 <dd><p>Performs all the checks involved with starting a new frame.</p>
 <p>Future/TODO:
 Checks if the new frame should be treated (or is out of range).
@@ -617,17 +617,17 @@ run-defining parameters.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="GMAP.src.programs.GEM.par_single_job">
-<span class="sig-prename descclassname"><span class="pre">GMAP.src.programs.GEM.</span></span><span class="sig-name descname"><span class="pre">par_single_job</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputpar</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/kimvana/GMAP_clone/blob/v1.20.0/GMAP/src/programs/GEM.py#L765-L821"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GMAP.src.programs.GEM.par_single_job" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">GMAP.src.programs.GEM.</span></span><span class="sig-name descname"><span class="pre">par_single_job</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputpar</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/kimvana/GMAP_clone/blob/v1.20.1/GMAP/src/programs/GEM.py#L765-L821"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GMAP.src.programs.GEM.par_single_job" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="GMAP.src.programs.GEM.parallel">
-<span class="sig-prename descclassname"><span class="pre">GMAP.src.programs.GEM.</span></span><span class="sig-name descname"><span class="pre">parallel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">in_parfile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">argslist</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">run_pars</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">singles_mapdict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pairs_mapdict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmd_pars</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_pars</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">def_pars</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_pars</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/kimvana/GMAP_clone/blob/v1.20.0/GMAP/src/programs/GEM.py#L824-L908"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GMAP.src.programs.GEM.parallel" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">GMAP.src.programs.GEM.</span></span><span class="sig-name descname"><span class="pre">parallel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">in_parfile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">argslist</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">run_pars</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">singles_mapdict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pairs_mapdict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmd_pars</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_pars</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">def_pars</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_pars</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/kimvana/GMAP_clone/blob/v1.20.1/GMAP/src/programs/GEM.py#L824-L908"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GMAP.src.programs.GEM.parallel" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="GMAP.src.programs.GEM.print_calculation_summary">
-<span class="sig-prename descclassname"><span class="pre">GMAP.src.programs.GEM.</span></span><span class="sig-name descname"><span class="pre">print_calculation_summary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">run_pars</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">system</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parallel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/kimvana/GMAP_clone/blob/v1.20.0/GMAP/src/programs/GEM.py#L400-L440"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GMAP.src.programs.GEM.print_calculation_summary" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">GMAP.src.programs.GEM.</span></span><span class="sig-name descname"><span class="pre">print_calculation_summary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">run_pars</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">system</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parallel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/kimvana/GMAP_clone/blob/v1.20.1/GMAP/src/programs/GEM.py#L400-L440"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GMAP.src.programs.GEM.print_calculation_summary" title="Link to this definition">#</a></dt>
 <dd><p>Reports how the calculation went, and some details users might
 want to know.</p>
 <dl class="field-list">
@@ -648,7 +648,7 @@ MD trajectory.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="GMAP.src.programs.GEM.print_frame_ETA">
-<span class="sig-prename descclassname"><span class="pre">GMAP.src.programs.GEM.</span></span><span class="sig-name descname"><span class="pre">print_frame_ETA</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">verbose</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">framenum</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">startframe</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">endframe</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/kimvana/GMAP_clone/blob/v1.20.0/GMAP/src/programs/GEM.py#L108-L195"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GMAP.src.programs.GEM.print_frame_ETA" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">GMAP.src.programs.GEM.</span></span><span class="sig-name descname"><span class="pre">print_frame_ETA</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">verbose</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">framenum</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">startframe</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">endframe</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/kimvana/GMAP_clone/blob/v1.20.1/GMAP/src/programs/GEM.py#L108-L195"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GMAP.src.programs.GEM.print_frame_ETA" title="Link to this definition">#</a></dt>
 <dd><p>Prints some time information about this frame.</p>
 <p>Will report on the time at which the report takes place, the current
 frame, time elapsed, an estimate of the time remaining, and an
@@ -706,7 +706,7 @@ the parameter end_frame.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="GMAP.src.programs.GEM.print_in_output_filenames">
-<span class="sig-prename descclassname"><span class="pre">GMAP.src.programs.GEM.</span></span><span class="sig-name descname"><span class="pre">print_in_output_filenames</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">run_pars</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/kimvana/GMAP_clone/blob/v1.20.0/GMAP/src/programs/GEM.py#L565-L635"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GMAP.src.programs.GEM.print_in_output_filenames" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">GMAP.src.programs.GEM.</span></span><span class="sig-name descname"><span class="pre">print_in_output_filenames</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">run_pars</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/kimvana/GMAP_clone/blob/v1.20.1/GMAP/src/programs/GEM.py#L565-L635"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GMAP.src.programs.GEM.print_in_output_filenames" title="Link to this definition">#</a></dt>
 <dd><p>report which files were used during the calculation</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -721,7 +721,7 @@ run-defining parameters.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="GMAP.src.programs.GEM.print_relevant_references">
-<span class="sig-prename descclassname"><span class="pre">GMAP.src.programs.GEM.</span></span><span class="sig-name descname"><span class="pre">print_relevant_references</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">run_pars</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">system</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/kimvana/GMAP_clone/blob/v1.20.0/GMAP/src/programs/GEM.py#L638-L670"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GMAP.src.programs.GEM.print_relevant_references" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">GMAP.src.programs.GEM.</span></span><span class="sig-name descname"><span class="pre">print_relevant_references</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">run_pars</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">system</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/kimvana/GMAP_clone/blob/v1.20.1/GMAP/src/programs/GEM.py#L638-L670"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GMAP.src.programs.GEM.print_relevant_references" title="Link to this definition">#</a></dt>
 <dd><p>report which references should be cited for this calculation</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -739,7 +739,7 @@ MD trajectory.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="GMAP.src.programs.GEM.print_time_splits">
-<span class="sig-prename descclassname"><span class="pre">GMAP.src.programs.GEM.</span></span><span class="sig-name descname"><span class="pre">print_time_splits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">run_pars</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parallel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/kimvana/GMAP_clone/blob/v1.20.0/GMAP/src/programs/GEM.py#L443-L521"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GMAP.src.programs.GEM.print_time_splits" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">GMAP.src.programs.GEM.</span></span><span class="sig-name descname"><span class="pre">print_time_splits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">run_pars</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parallel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/kimvana/GMAP_clone/blob/v1.20.1/GMAP/src/programs/GEM.py#L443-L521"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GMAP.src.programs.GEM.print_time_splits" title="Link to this definition">#</a></dt>
 <dd><p>Report how much time was spent on what parts of the calculation</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -756,7 +756,7 @@ run-defining parameters.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="GMAP.src.programs.GEM.print_treated_avail_frames">
-<span class="sig-prename descclassname"><span class="pre">GMAP.src.programs.GEM.</span></span><span class="sig-name descname"><span class="pre">print_treated_avail_frames</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">run_pars</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">system</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/kimvana/GMAP_clone/blob/v1.20.0/GMAP/src/programs/GEM.py#L524-L562"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GMAP.src.programs.GEM.print_treated_avail_frames" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">GMAP.src.programs.GEM.</span></span><span class="sig-name descname"><span class="pre">print_treated_avail_frames</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">run_pars</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">system</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/kimvana/GMAP_clone/blob/v1.20.1/GMAP/src/programs/GEM.py#L524-L562"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GMAP.src.programs.GEM.print_treated_avail_frames" title="Link to this definition">#</a></dt>
 <dd><p>Report what frames from MD are available, which were requested,
 and which actually calculated.</p>
 <p>For now, there is no difference between the requested and calculated
@@ -778,12 +778,12 @@ MD trajectory.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="GMAP.src.programs.GEM.run">
-<span class="sig-prename descclassname"><span class="pre">GMAP.src.programs.GEM.</span></span><span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">in_parfile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">argslist</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">run_pars</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">singles_mapdict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pairs_mapdict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmd_pars</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_pars</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">def_pars</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_pars</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/kimvana/GMAP_clone/blob/v1.20.0/GMAP/src/programs/GEM.py#L673-L762"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GMAP.src.programs.GEM.run" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">GMAP.src.programs.GEM.</span></span><span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">in_parfile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">argslist</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">run_pars</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">singles_mapdict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pairs_mapdict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmd_pars</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_pars</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">def_pars</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_pars</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/kimvana/GMAP_clone/blob/v1.20.1/GMAP/src/programs/GEM.py#L673-L762"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GMAP.src.programs.GEM.run" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="GMAP.src.programs.GEM.trj_loop">
-<span class="sig-prename descclassname"><span class="pre">GMAP.src.programs.GEM.</span></span><span class="sig-name descname"><span class="pre">trj_loop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">run_pars</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">system</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/kimvana/GMAP_clone/blob/v1.20.0/GMAP/src/programs/GEM.py#L237-L397"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GMAP.src.programs.GEM.trj_loop" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">GMAP.src.programs.GEM.</span></span><span class="sig-name descname"><span class="pre">trj_loop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">run_pars</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">system</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/kimvana/GMAP_clone/blob/v1.20.1/GMAP/src/programs/GEM.py#L237-L397"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#GMAP.src.programs.GEM.trj_loop" title="Link to this definition">#</a></dt>
 <dd><p>Performs the main per-frame loop for GEM.</p>
 <p>Does the last bit of initialization that needs to happen, and then
 treats each frame.</p>
@@ -901,7 +901,7 @@ MD trajectory.</p>
 
   <p class="copyright">
     
-      © Copyright 2023, KE van Adrichem.
+      © Copyright 2026, KE van Adrichem.
       <br/>
     
   </p>
