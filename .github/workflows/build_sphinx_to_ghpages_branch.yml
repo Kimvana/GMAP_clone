@@ -173,9 +173,18 @@ jobs:
         pwd
         ls
         ln -sf $LATEST_VERSION stable
-        echo "---------------------------"
+        cd v1.7
+        pwd
         ls
+        cd ../v1.8
+        pwd
+        ls
+        cd ../v1.9
+        pwd
+        ls
+        cd ..
         git add stable
+        git status
         git commit -m "redirect stable to new version $LATEST_VERSION"
       # The above commit will be committed to the checked-out branch gh-pages.
       # The tuftsrt workflow, in the file setup-destination.sh, will pull all
