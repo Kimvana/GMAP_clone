@@ -39,6 +39,10 @@ sys.path.append(str(repopath))
 # The name of the current version (in the built docs)
 latest_version = os.environ.get("LATEST_VERSION", "stable")
 source_branch = os.environ.get("SOURCE_BRANCH", "main")
+if source_branch == "development":
+    version_match = "development"
+else:
+    version_match = latest_version
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
@@ -59,7 +63,7 @@ html_theme_options = {
     "navbar_persistent": [],
     "switcher": {
         "json_url": "https://kimvana.github.io/GMAP_clone/stable/_static/switcher.json",
-        "version_match": latest_version,
+        "version_match": version_match,
     },
     "check_switcher": False,
     "show_version_warning_banner": True,

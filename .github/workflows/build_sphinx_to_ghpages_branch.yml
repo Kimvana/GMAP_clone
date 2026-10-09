@@ -82,6 +82,7 @@ jobs:
             {
                 "name": "development",
                 "version": "development",
+                "release": "development",
                 "url": f"{base_url}/development/"
             },
         ]
