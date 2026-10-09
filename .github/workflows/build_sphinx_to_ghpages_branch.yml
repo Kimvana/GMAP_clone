@@ -100,7 +100,7 @@ jobs:
             "version": tags_versioned[ix_stable],
             "url": f"{base_url}/stable/",
             "preferred": True
-        },
+        }
 
         print(entries)
 
