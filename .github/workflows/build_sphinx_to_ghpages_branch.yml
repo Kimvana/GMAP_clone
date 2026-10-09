@@ -83,6 +83,10 @@ jobs:
       with:
         ref: gh-pages
         path: gh-pages
+    - name: set user
+      run: |
+        git config --global user.name "$(git show -s --format='%an' HEAD)"
+        git config --global user.email "$(git show -s --format='%ae' HEAD)"
     - name: Redirect stable to new release
       if: ${{ env.DO_COMMIT == 'True'}}
       # The below ln command will try to symlink to a (probably) non-existent
