@@ -144,6 +144,7 @@ jobs:
         ref: gh-pages
         path: destination
     - name: sphinx-build
+      shell: bash -el {0}
       run: |
         cd destination
         pwd
