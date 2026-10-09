@@ -61,7 +61,7 @@ jobs:
             tags = [t.strip() for t in tags_raw.split("\n") if t.strip()]
         except Exception:
             tags = []
-        tags_minor = [get_version(tag) for tag in tags]
+        tags_minor = [get_version(tag) for tag in tags if "-" not in tag]
 
         source_branch = os.environ.get("SOURCE_BRANCH")
         env_file = os.environ.get("GITHUB_ENV")
@@ -121,7 +121,12 @@ jobs:
             tags = [t.strip() for t in tags_raw.split("\n") if t.strip()]
         except Exception:
             tags = []
-        tags = list(dict.fromkeys([get_version(tag) for tag in tags]))
+        tags_minor = [get_version(tag) for tag in tags if "-" not in tag]
+        tags_versioned = list(dict.fromkeys([get_version(tag) for tag in tags]))
+
+        for ix_stable, vtag in enumerate(tags_versioned):
+            if vtag in tags_minor:
+                break
 
         base_url = "https://lacourjansenlab.github.io/GMAP"
         entries = [
@@ -129,20 +134,24 @@ jobs:
                 "name": "development",
                 "version": "development",
                 "url": f"{base_url}/development/"
-            }, {
-                "name": f"{tags[0]} (stable)",
-                "version": tags[0],
-                "url": f"{base_url}/stable/",
-                "preferred": True
             },
         ]
 
-        for tag in tags[1:]:
+        skip_n = len(entries)
+
+        for tag in tags_versioned:
             entries.append({
                 "name": tag,
                 "version": tag,
                 "url": f"{base_url}/{tag}/"
             })
+
+        entries[ix_stable + skip_n] = {
+            "name": f"{tags_versioned[ix_stable]} (stable)",
+            "version": tags_versioned[ix_stable],
+            "url": f"{base_url}/stable/",
+            "preferred": True
+        },
 
         Path("sphinx_docs/_static").mkdir(exist_ok=True)
         with open("sphinx_docs/_static/switcher.json", "w") as fhand:
