@@ -176,10 +176,7 @@ jobs:
         cd v1.7
         pwd
         ls
-        cd ../v1.8
-        pwd
-        ls
-        cd ../v1.9
+        cd ../v1.10
         pwd
         ls
         cd ..
