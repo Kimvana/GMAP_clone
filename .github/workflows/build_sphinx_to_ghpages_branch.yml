@@ -152,11 +152,31 @@ jobs:
         cd destination
         pwd
         ls
+        cd v1.7
+        pwd
+        ls
+        cd ..
         touch .nojekyll
+        cd v1.7
+        pwd
+        ls
+        cd ..
         git add .nojekyll
+        cd v1.7
+        pwd
+        ls
+        cd ..
         git add $CURRENT_VERSION
+        cd v1.7
+        pwd
+        ls
+        cd ..
+        rm stable
         git commit -m "Built sphinx docs for version $CURRENT_VERSION"
-        
+        cd v1.7
+        pwd
+        ls
+        cd ..
     - name: Redirect stable to new release
       if: ${{ env.DO_SYMLINK == 'True'}}
       # The below ln command will try to symlink to a (probably) non-existent
@@ -169,15 +189,19 @@ jobs:
         cd destination
         pwd
         ls
+        cd v1.7
+        pwd
+        ls
+        cd ..
         ln -sf $LATEST_VERSION stable
         cd v1.7
         pwd
         ls
-        cd ../v1.11
+        cd ../v1.12
         pwd
         ls
         cd ..
-        git add stable
+        git add -v stable
         git status
         git commit -m "redirect stable to new version $LATEST_VERSION"
       # The above commit will be committed to the checked-out branch gh-pages.
