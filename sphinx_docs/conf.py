@@ -12,7 +12,7 @@ from pathlib import Path
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'GMAP'
-copyright = '2023, KE van Adrichem'
+copyright = '2026, KE van Adrichem'
 author = 'KE van Adrichem'
 release = '1.0'  # will be overwritten
 
