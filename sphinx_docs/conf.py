@@ -37,7 +37,7 @@ repopath = Path(__file__).parent.parent.resolve()
 sys.path.append(str(repopath))
 
 # The name of the current version (in the built docs)
-current_version = os.environ.get("RELEASE_VERSION", "latest")
+current_version = os.environ.get("LATEST_VERSION", "stable")
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
