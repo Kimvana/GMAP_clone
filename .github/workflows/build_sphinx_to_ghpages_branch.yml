@@ -102,6 +102,8 @@ jobs:
             "preferred": True
         },
 
+        print(entries)
+
         Path("sphinx_docs/_static").mkdir(exist_ok=True)
         with open("sphinx_docs/_static/switcher.json", "w") as fhand:
             json.dump(entries, fhand, indent=4)
@@ -197,7 +199,7 @@ jobs:
         cd v1.7
         pwd
         ls
-        cd ../v1.12
+        cd ../$LATEST_VERSION
         pwd
         ls
         cd ..
