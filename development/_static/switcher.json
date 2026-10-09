@@ -1,16 +1,22 @@
 [
     {
         "name": "development",
-        "version": "development",
-        "release": "development",
+        "version": "dev",
+        "release": "dev",
         "url": "https://kimvana.github.io/GMAP_clone/development/"
     },
     {
-        "name": "v1.17 (stable)",
-        "version": "v1.17",
-        "release": "v1.17",
+        "name": "v1.18 (stable)",
+        "version": "v1.18",
+        "release": "v1.18",
         "url": "https://kimvana.github.io/GMAP_clone/stable/",
         "preferred": true
+    },
+    {
+        "name": "v1.17",
+        "version": "v1.17",
+        "release": "v1.17",
+        "url": "https://kimvana.github.io/GMAP_clone/v1.17/"
     },
     {
         "name": "v1.16",
