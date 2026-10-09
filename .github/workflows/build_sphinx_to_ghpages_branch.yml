@@ -81,8 +81,8 @@ jobs:
         entries = [
             {
                 "name": "development",
-                "version": "development",
-                "release": "development",
+                "version": "dev",
+                "release": "dev",
                 "url": f"{base_url}/development/"
             },
         ]

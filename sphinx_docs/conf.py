@@ -40,7 +40,7 @@ sys.path.append(str(repopath))
 latest_version = os.environ.get("LATEST_VERSION", "stable")
 source_branch = os.environ.get("SOURCE_BRANCH", "main")
 if source_branch == "development":
-    version_match = "development"
+    version_match = "dev"
 else:
     version_match = latest_version
 
