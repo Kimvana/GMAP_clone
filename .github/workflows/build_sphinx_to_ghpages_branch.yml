@@ -166,6 +166,10 @@ jobs:
 
         EOF
     # TODO (like from example) (also add 'preferred' label and (stable) at name)
+    - name: print info
+      run: | 
+        pwd
+        ls
     - name: build sphinx docs
       uses: tuftsrt/sphinx-to-branch@v1.2.2
       # env:
@@ -179,3 +183,7 @@ jobs:
         # We need to clear the directory we're building to in case there was
         # a version built for it before.
         remove-items: ${{ env.CURRENT_VERSION }}/*
+    - name: print info
+      run: | 
+        pwd
+        ls
