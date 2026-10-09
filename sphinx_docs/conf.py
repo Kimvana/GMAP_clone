@@ -57,12 +57,13 @@ html_theme_options = {
     ],
     "navbar_persistent": [],
     "switcher": {
-        "json_url": "https://kimvana.github.io/GMAP_clone/latest/_static/switcher.json",
+        "json_url": "https://kimvana.github.io/GMAP_clone/stable/_static/switcher.json",
         "version_match": current_version,
     },
     "check_switcher": False,
+    "show_version_warning_banner": True,
 }
-# html_static_path = ['_static']
+html_static_path = ['_static']
 html_favicon = "Figures/GMAP_ico.ico"
 
 suppress_warnings = ["docutils"]
