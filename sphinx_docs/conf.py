@@ -84,12 +84,12 @@ html_js_files = [(
     {
         "body": """
         document.addEventListener("DOMContentLoaded", function() {
-            const targetDiv = document.getElementById("central-dynamic-block");
+            const targetDiv = document.getElementById("load-release-overview");
             if (targetDiv) {
                 // DOCUMENTATION_OPTIONS.URL_ROOT is an internal Sphinx variable 
                 // that automatically resolves the correct relative path to your site's root.
                 const rootPath = typeof DOCUMENTATION_OPTIONS !== 'undefined' ? DOCUMENTATION_OPTIONS.URL_ROOT : './';
-                const targetUrl = `${rootPath}_static/central_block.html`;
+                const targetUrl = `https://kimvana.github.io/GMAP_clone/development/_static/release_download_overview.html`;
 
                 fetch(targetUrl, { cache: "no-store" })
                     .then(response => {
