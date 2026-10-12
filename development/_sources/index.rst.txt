@@ -123,7 +123,7 @@ Download link for most recent patch of each version:
 
 .. raw:: html
 
-   <div id="central-dynamic-block">Loading latest updates...</div>
+   <div id="load-release-overview">Loading latest updates...</div>
 
 
 
