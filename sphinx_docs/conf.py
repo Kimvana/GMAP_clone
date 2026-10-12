@@ -193,16 +193,18 @@ def linkcode_resolve(domain, info):
 
 
 def release_download_overview():
+    subprocess.run(["git", "fetch", "--tags"])
     try:
         tags_raw = subprocess.check_output(
             ["git", "tag", "-l", "--sort=-v:refname"]).decode("utf-8")
         tags = [t.strip() for t in tags_raw.split("\n") if t.strip()]
     except Exception:
         tags = []
-        return f"{tags_raw}\n\n\n{traceback.format_exc}"
+        return f"text{tags_raw}\n\n\n{traceback.format_exc()}othertext"
 
     base_url = "https://github.com/Kimvana/GMAP_clone/releases/tag/"
     return_string = (
+        f"tagsraw: {tags_raw}\n"
         "Download link for most recent path of each version:\n"
     )
 
