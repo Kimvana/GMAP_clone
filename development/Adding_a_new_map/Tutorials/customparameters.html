@@ -562,31 +562,6 @@
 <p>Yes, the example is still quite mathy, but we can ignore most of that. It is here because vector addition/multiplication is a lot cheaper than the sines/cosines this code otherwise needs. Our focus is mainly on the line defining the factor itheta (inverse theta - although that’s not important for us). In that line, we can see where the GMAP parameters are stored: in the <code class="docutils literal notranslate"><span class="pre">RunPars</span></code> object stored as an attribute of the <code class="docutils literal notranslate"><span class="pre">map_</span></code> object. Within that run_pars, we just look for the name that we chose in the parameters file, and we get the specified datatype back: in this case a float.</p>
 <p>A brief note on this <code class="docutils literal notranslate"><span class="pre">map_.run_pars</span></code> object - it stores all parameters of the map it is an attribute of. It also contains a link to the main RunPars object of GMAP - the one that contains the choices for the main program (like verbose and trajectory_file). Both have the same structure and way of use. That main runpars object can be accessed using <code class="docutils literal notranslate"><span class="pre">map_.run_pars.main_run_pars</span></code>, but <strong>changes to it should never be made!</strong></p>
 <p>Small bonus: this map also shows an example on how to read values from the core.txt file. Know that there are two versions in the code. One is called rawcore - it is the most crude direct parse from the text file. The other is the <code class="docutils literal notranslate"><span class="pre">map_.core</span></code> object: it contains more parsed/checked information of more usable formats. Unless abslutely needed, this <code class="docutils literal notranslate"><span class="pre">map_.core</span></code> version should be used over the other one!</p>
-<div class="line-block">
-<div class="line"><a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/v1.22.0">Version 1.22.0</a></div>
-<div class="line"><a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/v1.21.0">Version 1.21.0</a></div>
-<div class="line"><a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/v1.20.2">Version 1.20.2</a></div>
-<div class="line"><a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/v1.19.0">Version 1.19.0</a></div>
-<div class="line"><a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/v1.18.0">Version 1.18.0</a></div>
-<div class="line"><a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/v1.17.0">Version 1.17.0</a></div>
-<div class="line"><a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/v1.16.0">Version 1.16.0</a></div>
-<div class="line"><a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/v1.15.0">Version 1.15.0</a></div>
-<div class="line"><a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/v1.14.0">Version 1.14.0</a></div>
-<div class="line"><a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/v1.13.0">Version 1.13.0</a></div>
-<div class="line"><a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/v1.12.0">Version 1.12.0</a></div>
-<div class="line"><a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/v1.11.0">Version 1.11.0</a></div>
-<div class="line"><a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/v1.10.0">Version 1.10.0</a></div>
-<div class="line"><a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/v1.9.0">Version 1.9.0</a></div>
-<div class="line"><a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/v1.8.0">Version 1.8.0</a></div>
-<div class="line"><a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/v1.7.0">Version 1.7.0</a></div>
-<div class="line"><a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/v1.6.0">Version 1.6.0</a></div>
-<div class="line"><a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/v1.5.0">Version 1.5.0</a></div>
-<div class="line"><a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/v1.4.0">Version 1.4.0</a></div>
-<div class="line"><a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/v1.3.0">Version 1.3.0</a></div>
-<div class="line"><a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/v1.2.0">Version 1.2.0</a></div>
-<div class="line"><a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/v1.1.0">Version 1.1.0</a></div>
-<div class="line"><a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/v1.0.0">Version 1.0.0</a></div>
-</div>
 </section>
 </section>
 
