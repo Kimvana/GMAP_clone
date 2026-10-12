@@ -51,6 +51,30 @@
             true;
         </script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const targetDiv = document.getElementById("load-release-overview");
+            if (targetDiv) {
+                // DOCUMENTATION_OPTIONS.URL_ROOT is an internal Sphinx variable 
+                // that automatically resolves the correct relative path to your site's root.
+                const rootPath = typeof DOCUMENTATION_OPTIONS !== 'undefined' ? DOCUMENTATION_OPTIONS.URL_ROOT : './';
+                const targetUrl = `https://kimvana.github.io/GMAP_clone/stable/_static/release_download_overview.html`;
+
+                fetch(targetUrl, { cache: "no-store" })
+                    .then(response => {
+                        if (!response.ok) throw new Error("File not found");
+                        return response.text();
+                    })
+                    .then(data => {
+                        targetDiv.innerHTML = data;
+                    })
+                    .catch(error => {
+                        console.error("Error updating live block:", error);
+                        targetDiv.innerHTML = "<p style='color: red;'>Failed to load live updates.</p>";
+                    });
+            }}
+        );
+        </script>
     <link rel="icon" href="_static/GMAP_ico.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -174,20 +198,30 @@
   </a>
 </li>
 
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="Developer_guide/index.html">
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="Developer_guide/index.html">
     Developers guide
   </a>
 </li>
 
 
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="code_docs.html">
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="code_docs.html">
     Source code documentation
   </a>
 </li>
 
+                </ul>
+            </li>
+            
   </ul>
 </nav></div>
       
@@ -525,6 +559,10 @@
 <p>Then, the same electrostatic properties are calculated for each group in the MD system. The same relation can than be applied to find the desired property for each of the groups.</p>
 </section>
 </section>
+<section id="where-to-download-gmap">
+<h2>Where to download GMAP?<a class="headerlink" href="#where-to-download-gmap" title="Link to this heading">#</a></h2>
+<p>Download link for most recent patch of each version:</p>
+<div id="load-release-overview">Loading latest updates...</div></section>
 <section id="indices-and-tables">
 <h2>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Link to this heading">#</a></h2>
 <ul class="simple">
@@ -578,6 +616,7 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concept-of-maps">Concept of maps</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-to-download-gmap">Where to download GMAP?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indices-and-tables">Indices and tables</a></li>
 </ul>
   </nav></div>
