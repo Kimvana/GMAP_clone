@@ -200,11 +200,9 @@ def release_download_overview():
         tags = [t.strip() for t in tags_raw.split("\n") if t.strip()]
     except Exception:
         tags = []
-        return f"text{tags_raw}\n\n\n{traceback.format_exc()}othertext"
 
     base_url = "https://github.com/Kimvana/GMAP_clone/releases/tag/"
     return_string = (
-        f"tagsraw: {tags_raw}\n"
         "Download link for most recent path of each version:\n"
     )
 
@@ -215,8 +213,9 @@ def release_download_overview():
         version = (tag_split[0], tag_split[1])
         if version != prev_version:
             return_string += (
-                f"| `Version {tag[1:]} <{base_url}tag>`__\n"
+                f"| `Version {tag[1:]} <{base_url}{tag}>`__\n"
             )
+        prev_version = version
 
     return return_string
 
