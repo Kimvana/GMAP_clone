@@ -548,30 +548,6 @@ The atom numbered 26 is the magnesium atom, because that’s what on that positi
 <p>The next step is to find out what the residue number of this specific Bchl-c molecule is. For this, we have a list with the residue number of each atom (more specifically, the residue number of the residue that atom is in) called <code class="docutils literal notranslate"><span class="pre">system.resnums</span></code>, in which we look up our Bchl-c molecule. We need an atom, not molecule, so we ask for the residue number of the magnesium atom. The <code class="docutils literal notranslate"><span class="pre">oscillator.used_atoms[mg_idx]</span></code> gives us the atom number of the magnesium atom.</p>
 <p>The last step is to use the found residue number to find the location where that residue’s center of mass is saved. <code class="docutils literal notranslate"><span class="pre">system.residues</span></code> contains information on a per-residue basis, so <code class="docutils literal notranslate"><span class="pre">system.residues.CoM_box</span></code> has all centers of mass in box coordinates (CoM has them in cartesian). This molecule of Bchl-c’s center of mass is therefore <code class="docutils literal notranslate"><span class="pre">system.residues.CoM_box[resnum]</span></code>. We overwrite the current saved center of mass with the current position of the magnesium atom (in box coordinates), which we can find in <code class="docutils literal notranslate"><span class="pre">oscillator.positions_box[mg_idx]</span></code>. We do the same with the cartesian-coordinate version of the center of mass and position, but only if they are actually used by the program (which is only the case for orthorhombic mode - we expect to actually use this mode a lot).</p>
 <p>Why do we have to define both separately? The program uses both, and only does the conversion once. At the beginning of each frame, GMAP calculates the centers of mass once (see GEM.py, trj_loop(), call to System.update_properties(), which is defined in system_reader.py, which has a call to clib.calc_CoM_box()), but does this in box coordinates, as that’s the cheaper way of calculating them. After they’ve been calculated, if the program runs in orthorhombic mode, the box CoMs are converted to cartesian coordinates once, and the program never changes them, so doesn’t update this conversion in between steps. We therefore have to do both to make sure we always use the correct values for things!</p>
-<p>Download link for most recent path of each version:
-| <a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/v1.22.0">Version 1.22.0</a>
-| <a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/v1.21.0">Version 1.21.0</a>
-| <a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/v1.20.2">Version 1.20.2</a>
-| <a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/v1.19.0">Version 1.19.0</a>
-| <a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/v1.18.0">Version 1.18.0</a>
-| <a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/v1.17.0">Version 1.17.0</a>
-| <a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/v1.16.0">Version 1.16.0</a>
-| <a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/v1.15.0">Version 1.15.0</a>
-| <a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/v1.14.0">Version 1.14.0</a>
-| <a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/v1.13.0">Version 1.13.0</a>
-| <a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/v1.12.0">Version 1.12.0</a>
-| <a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/v1.11.0">Version 1.11.0</a>
-| <a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/v1.10.0">Version 1.10.0</a>
-| <a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/v1.9.0">Version 1.9.0</a>
-| <a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/v1.8.0">Version 1.8.0</a>
-| <a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/v1.7.0">Version 1.7.0</a>
-| <a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/v1.6.0">Version 1.6.0</a>
-| <a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/v1.5.0">Version 1.5.0</a>
-| <a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/v1.4.0">Version 1.4.0</a>
-| <a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/v1.3.0">Version 1.3.0</a>
-| <a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/v1.2.0">Version 1.2.0</a>
-| <a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/v1.1.0">Version 1.1.0</a>
-| <a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/v1.0.0">Version 1.0.0</a></p>
 </section>
 </section>
 
