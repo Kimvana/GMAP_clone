@@ -140,7 +140,9 @@ jobs:
     - name: sphinx-build
       shell: bash -el {0}
       run: |
-        sphinx-build -E source/sphinx_docs destination/$CURRENT_VERSION
+        cd source
+        sphinx-build -E sphinx_docs ../destination/$CURRENT_VERSION
+        cd ..
     - name: nojekyll and commit
       run: |
         cd destination
