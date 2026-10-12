@@ -1,5 +1,8 @@
 Download link for most recent patch of each version:
 
+
+GMAP v1
+
 | `Version 1.22.0 <https://github.com/Kimvana/GMAP_clone/releases/tag/v1.22.0>`__
 | `Version 1.21.0 <https://github.com/Kimvana/GMAP_clone/releases/tag/v1.21.0>`__
 | `Version 1.20.2 <https://github.com/Kimvana/GMAP_clone/releases/tag/v1.20.2>`__
