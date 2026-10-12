@@ -542,6 +542,33 @@
 <p>Firstly, the module GM_dmf contains all the logic for generating all functions a map needs. Any function GMAP will attempt to call from a map (see <a class="reference internal" href="../File_structure/single_main_py.html#addmap-filestruct-singmainpy"><span class="std std-ref">the singles main.py</span></a> or <a class="reference internal" href="../File_structure/pair_main_py.html#addmap-filestruct-pairmainpy"><span class="std std-ref">the pairs main.py</span></a> for a complete overview) actually needs to be present for GMAP to function. So, when first interpreting a map, GMAP will check if all are present, and if some are missing, build default versions  of them based on the map’s core.txt file.</p>
 <p>This map uses that same logic - it calls the generator of the function <code class="docutils literal notranslate"><span class="pre">GM_calculate_frequency</span></code>, the generator is named <code class="docutils literal notranslate"><span class="pre">get_calculate</span> <span class="pre">frequency</span></code>. The generator uses the <code class="docutils literal notranslate"><span class="pre">Map</span></code> object to base a frequency function on, and returns the result, which is saved here as <code class="docutils literal notranslate"><span class="pre">calc_frequency</span></code> so the newly defined function <code class="docutils literal notranslate"><span class="pre">calculate_frequency</span></code> can use it.</p>
 <p>Now, we need to access the place where GMAP stores all functions it finds in the main.py file: that is under <code class="docutils literal notranslate"><span class="pre">Map.code</span></code>. We are creating the function <code class="docutils literal notranslate"><span class="pre">GM_calculate_frequency</span></code>, so need to save our new function there.</p>
+<div class="line-block">
+<div class="line"><a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/tag">Version 1.22.0</a></div>
+<div class="line"><a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/tag">Version 1.21.0</a></div>
+<div class="line"><a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/tag">Version 1.20.2</a></div>
+<div class="line"><a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/tag">Version 1.20.1</a></div>
+<div class="line"><a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/tag">Version 1.20.0</a></div>
+<div class="line"><a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/tag">Version 1.19.0</a></div>
+<div class="line"><a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/tag">Version 1.18.0</a></div>
+<div class="line"><a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/tag">Version 1.17.0</a></div>
+<div class="line"><a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/tag">Version 1.16.0</a></div>
+<div class="line"><a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/tag">Version 1.15.0</a></div>
+<div class="line"><a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/tag">Version 1.14.0</a></div>
+<div class="line"><a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/tag">Version 1.13.0</a></div>
+<div class="line"><a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/tag">Version 1.12.0</a></div>
+<div class="line"><a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/tag">Version 1.11.0</a></div>
+<div class="line"><a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/tag">Version 1.10.0</a></div>
+<div class="line"><a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/tag">Version 1.9.0</a></div>
+<div class="line"><a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/tag">Version 1.8.0</a></div>
+<div class="line"><a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/tag">Version 1.7.0</a></div>
+<div class="line"><a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/tag">Version 1.6.0</a></div>
+<div class="line"><a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/tag">Version 1.5.0</a></div>
+<div class="line"><a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/tag">Version 1.4.0</a></div>
+<div class="line"><a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/tag">Version 1.3.0</a></div>
+<div class="line"><a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/tag">Version 1.2.0</a></div>
+<div class="line"><a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/tag">Version 1.1.0</a></div>
+<div class="line"><a class="reference external" href="https://github.com/Kimvana/GMAP_clone/releases/tag/tag">Version 1.0.0</a></div>
+</div>
 </section>
 </section>
 
