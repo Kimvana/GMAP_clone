@@ -52,6 +52,30 @@
             true;
         </script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const targetDiv = document.getElementById("central-dynamic-block");
+            if (targetDiv) {
+                // DOCUMENTATION_OPTIONS.URL_ROOT is an internal Sphinx variable 
+                // that automatically resolves the correct relative path to your site's root.
+                const rootPath = typeof DOCUMENTATION_OPTIONS !== 'undefined' ? DOCUMENTATION_OPTIONS.URL_ROOT : './';
+                const targetUrl = `${rootPath}_static/central_block.html`;
+
+                fetch(targetUrl, { cache: "no-store" })
+                    .then(response => {
+                        if (!response.ok) throw new Error("File not found");
+                        return response.text();
+                    })
+                    .then(data => {
+                        targetDiv.innerHTML = data;
+                    })
+                    .catch(error => {
+                        console.error("Error updating live block:", error);
+                        targetDiv.innerHTML = "<p style='color: red;'>Failed to load live updates.</p>";
+                    });
+            }}
+        );
+        </script>
     <link rel="icon" href="../_static/GMAP_ico.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
