@@ -142,6 +142,7 @@ jobs:
       run: |
         cd source
         sphinx-build -E sphinx_docs ../destination/$CURRENT_VERSION
+        cd ..
     - name: nojekyll and commit
       run: |
         cd destination
