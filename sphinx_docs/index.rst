@@ -116,6 +116,12 @@ The figure on the right is a visual representation of this process. A model syst
 Then, the same electrostatic properties are calculated for each group in the MD system. The same relation can than be applied to find the desired property for each of the groups.
 
 
+Where to download GMAP?
+=======================
+
+|release_download_overview|
+
+
 Indices and tables
 ==================
 

@@ -1,5 +1,6 @@
 import inspect
 import os
+import subprocess
 import sys
 from pathlib import Path
 
@@ -188,3 +189,34 @@ def linkcode_resolve(domain, info):
     # Build GitHub URL
     url = f"https://github.com/kimvana/GMAP_clone/blob/{source_branch}/{rel_fn}{linespec}"
     return url
+
+
+def release_download_overview():
+    try:
+        tags_raw = subprocess.check_output(
+            ["git", "tag", "-l", "--sort=-v:refname"]).decode("utf-8")
+        tags = [t.strip() for t in tags_raw.split("\n") if t.strip()]
+    except Exception:
+        tags = []
+
+    base_url = "https://github.com/Kimvana/GMAP_clone/releases/tag/"
+    return_string = (
+        "Download link for most recent path of each version:\n"
+    )
+
+    prev_version = ("x", "x")
+    for tag in tags:
+        tag_split = tag.split("-")
+        tag_split = tag_split[0].split(".") + tag_split[1:]
+        version = (tag_split[0], tag_split[1])
+        if version != prev_version:
+            return_string += (
+                f"| `Version {tag[1:]} <{base_url}tag>`__\n"
+            )
+
+    return return_string
+
+
+rst_epilog = f"""
+.. |release_download_overview| replace:: {release_download_overview()}
+"""
