@@ -272,7 +272,7 @@ def release_download_overview():
         return_string += (
             f'<section id="gmap-{headertext}">\n'
             f'  <h3>\n'
-            f'    "GMAP {headertext}"\n'
+            f'    GMAP {headertext}\n'
             f'    <a class="headerlink" href="#gmap-{headertext}" title="Link to this heading">#</a>\n'
             f'  </h3>\n'
             f'  <table class="hlist">\n'
@@ -297,7 +297,7 @@ def release_download_overview():
                     f'            <li>\n'
                     f'              ::marker\n'
                     f'              <p>\n'
-                    f'                <a class="reference external" href="{base_url}{tag}>Version {tag[1:]}</a>"\n'
+                    f'                <a class="reference external" href="{base_url}{tag}">Version {tag[1:]}</a>\n'
                     f'              </p>\n'
                     f'            </li>\n'
                 )
