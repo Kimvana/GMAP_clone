@@ -184,8 +184,8 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../api_out/modules.html">
-    GMAP
+  <a class="nav-link nav-internal" href="../code_docs.html">
+    Source code documentation
   </a>
 </li>
 
@@ -328,8 +328,8 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../api_out/modules.html">
-    GMAP
+  <a class="nav-link nav-internal" href="../code_docs.html">
+    Source code documentation
   </a>
 </li>
 
@@ -539,6 +539,18 @@ When the senior developers think it is time for a new release, the development b
 <p>The address ‘stable’ also exists, but it is a symlink to the most recent stable version.</p>
 <p>If a prerelease is created, the documentation for it will be built. It will be added to the version dropdown file, too, but it will not be marked as stable. It will not show up in the dropdown menu of any version. Still, a direct link (containing the new minor version) will work and can be shared along with the prerelease.</p>
 </section>
+<section id="jinja-templates">
+<h2>Jinja templates<a class="headerlink" href="#jinja-templates" title="Link to this heading">#</a></h2>
+<p>There are a few jinja templates available for apidoc to use. This is what they do:</p>
+<section id="module-rst-jinja">
+<h3>module.rst.jinja<a class="headerlink" href="#module-rst-jinja" title="Link to this heading">#</a></h3>
+<p>This one is used to generate the apidoc pages for python files (e.g. parameter_parser.rst).</p>
+</section>
+<section id="package-rst-jinja">
+<h3>Package.rst.jinja<a class="headerlink" href="#package-rst-jinja" title="Link to this heading">#</a></h3>
+<p>This one is used to generate the apidoc pages for directories (e.g. GMAP, GMAP.src.tools).</p>
+</section>
+</section>
 </section>
 
 
@@ -594,6 +606,11 @@ When the senior developers think it is time for a new release, the development b
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#versions-and-documentation">Versions and documentation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jinja-templates">Jinja templates</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#module-rst-jinja">module.rst.jinja</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#package-rst-jinja">Package.rst.jinja</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

@@ -69,3 +69,26 @@ The address 'stable' also exists, but it is a symlink to the most recent stable 
 
 If a prerelease is created, the documentation for it will be built. It will be added to the version dropdown file, too, but it will not be marked as stable. It will not show up in the dropdown menu of any version. Still, a direct link (containing the new minor version) will work and can be shared along with the prerelease.
 
+
+
+
+***************
+Jinja templates
+***************
+
+There are a few jinja templates available for apidoc to use. This is what they do:
+
+
+module.rst.jinja
+================
+
+This one is used to generate the apidoc pages for python files (e.g. parameter_parser.rst).
+
+
+Package.rst.jinja
+=================
+
+This one is used to generate the apidoc pages for directories (e.g. GMAP, GMAP.src.tools).
+
+
+
