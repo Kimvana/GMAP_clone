@@ -203,7 +203,7 @@ def release_download_overview():
 
     base_url = "https://github.com/Kimvana/GMAP_clone/releases/tag/"
     return_string = (
-        "\n    Download link for most recent path of each version:\n    \n"
+        "\nDownload link for most recent path of each version:\n"
     )
 
     prev_version = ("x", "x")
@@ -213,7 +213,7 @@ def release_download_overview():
         version = (tag_split[0], tag_split[1])
         if version != prev_version:
             return_string += (
-                f"    | `Version {tag[1:]} <{base_url}{tag}>`__\n"
+                f"| `Version {tag[1:]} <{base_url}{tag}>`__\n"
             )
         prev_version = version
 
@@ -221,5 +221,6 @@ def release_download_overview():
 
 
 rst_epilog = f"""
-.. |release_download_overview| replace:: {release_download_overview()}
+.. |release_download_overview| replace::
+{release_download_overview()}
 """
