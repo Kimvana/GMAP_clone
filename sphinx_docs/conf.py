@@ -295,7 +295,7 @@ def release_download_overview():
             for tag in subtags[(n_items * colnum):(n_items * (colnum + 1))]:
                 return_string += (
                     f'            <li>\n'
-                    f'              ::marker\n'
+                    # f'              ::marker\n'
                     f'              <p>\n'
                     f'                <a class="reference external" href="{base_url}{tag}">Version {tag[1:]}</a>\n'
                     f'              </p>\n'
