@@ -79,6 +79,36 @@ html_favicon = "Figures/GMAP_ico.ico"
 
 suppress_warnings = ["docutils"]
 
+html_js_files = [(
+    None,
+    {
+        "body": """
+        document.addEventListener("DOMContentLoaded", function() {
+            const targetDiv = document.getElementById("central-dynamic-block");
+            if (targetDiv) {
+                // DOCUMENTATION_OPTIONS.URL_ROOT is an internal Sphinx variable 
+                // that automatically resolves the correct relative path to your site's root.
+                const rootPath = typeof DOCUMENTATION_OPTIONS !== 'undefined' ? DOCUMENTATION_OPTIONS.URL_ROOT : './';
+                const targetUrl = `${rootPath}_static/central_block.html`;
+
+                fetch(targetUrl, { cache: "no-store" })
+                    .then(response => {
+                        if (!response.ok) throw new Error("File not found");
+                        return response.text();
+                    })
+                    .then(data => {
+                        targetDiv.innerHTML = data;
+                    })
+                    .catch(error => {
+                        console.error("Error updating live block:", error);
+                        targetDiv.innerHTML = "<p style='color: red;'>Failed to load live updates.</p>";
+                    });
+            }}
+        );
+        """
+    }
+)]
+
 # -- Other options -----------------------------------------------------------
 numpydoc_class_members_toctree = False
 
@@ -202,10 +232,29 @@ def release_download_overview():
         tags = []
 
     base_url = "https://github.com/Kimvana/GMAP_clone/releases/tag/"
-    return_string = (
-        "Download link for most recent patch of each version:\n\n"
-    )
+    # return_string = (
+    #     "Download link for most recent patch of each version:\n\n"
+    # )
 
+    # Generate .rst
+    # prev_version = ("x", "x")
+    # for tag in tags:
+    #     tag_split = tag.split("-")
+    #     tag_split = tag_split[0].split(".") + tag_split[1:]
+    #     version = (tag_split[0], tag_split[1])
+    #     if version != prev_version:
+    #         if version[0] != prev_version[0]:
+    #             return_string += (
+    #                 f"\nGMAP {version[0]}\n{'-' * 30}\n\n"
+    #                 ".. hlist::\n    :columns: 4\n\n"
+    #             )
+    #         return_string += (
+    #             f"    - `Version {tag[1:]} <{base_url}{tag}>`__\n"
+    #         )
+    #     prev_version = version
+
+    # group the tags
+    tags_sorted = []
     prev_version = ("x", "x")
     for tag in tags:
         tag_split = tag.split("-")
@@ -213,18 +262,65 @@ def release_download_overview():
         version = (tag_split[0], tag_split[1])
         if version != prev_version:
             if version[0] != prev_version[0]:
-                return_string += (
-                    f"\nGMAP {version[0]}\n{'-' * 30}\n\n"
-                    ".. hlist::\n    :columns: 4\n\n"
-                )
-            return_string += (
-                f"    - `Version {tag[1:]} <{base_url}{tag}>`__\n"
-            )
+                tags_sorted.append([version[0], []])
+            tags_sorted[-1][1].append(tag)
         prev_version = version
+
+    # build html
+    return_string = ""
+    for (headertext, subtags) in tags_sorted:
+        return_string += (
+            f'<section id="gmap-{headertext}">\n'
+            f'  <h3>\n'
+            f'    "GMAP {headertext}"\n'
+            f'    <a class="headerlink" href="#gmap-{headertext}" title="Link to this heading">#</a>\n'
+            f'  </h3>\n'
+            f'  <table class="hlist">\n'
+            f'    <tbody>\n'
+            f'      <tr>\n'
+        )
+
+        # determine number of items per column
+        n_total = len(subtags)
+        n_items = n_total // 4
+        if n_total % 4 != 0:
+            n_items += 1
+
+        for colnum in range(4):
+            return_string += (
+                f'        <td>\n'
+                f'          <ul class="simple">\n'
+            )
+
+            for tag in subtags[(n_items * colnum):(n_items * (colnum + 1))]:
+                return_string += (
+                    f'            <li>\n'
+                    f'              ::marker\n'
+                    f'              <p>\n'
+                    f'                <a class="reference external" href="{base_url}{tag}>Version {tag[1:]}</a>"\n'
+                    f'              </p>\n'
+                    f'            </li>\n'
+                )
+
+            return_string += (
+                "          </ul>\n"
+                "        </td>\n"
+            )
+
+        return_string += (
+            "      </tr>\n"
+            "    </tbody>\n"
+            "  </table>\n"
+            "</section>\n"
+        )
 
     return return_string
 
 
-linkfile = Path(__file__).parent / "linkfile.rst"
+# linkfile = Path(__file__).parent / "linkfile.rst"
+# with open(linkfile, "w", encoding="utf-8") as fhand:
+#     fhand.write(release_download_overview())
+
+linkfile = Path(__file__).parent / "_static" / "release_download_overview.html"
 with open(linkfile, "w", encoding="utf-8") as fhand:
     fhand.write(release_download_overview())
