@@ -212,6 +212,10 @@ def release_download_overview():
         tag_split = tag_split[0].split(".") + tag_split[1:]
         version = (tag_split[0], tag_split[1])
         if version != prev_version:
+            if version[0] != prev_version[0]:
+                return_string += (
+                    f"\nGMAP {version[0]}\n\n"
+                )
             return_string += (
                 f"| `Version {tag[1:]} <{base_url}{tag}>`__\n"
             )
