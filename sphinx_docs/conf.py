@@ -43,7 +43,7 @@ if source_branch == "development":
     version_match = "dev"
     release = "dev"
 else:
-    version_match = latest_version
+    version_match = ".".join(source_branch.split(".")[:2])
     release = source_branch
 
 # -- Options for HTML output -------------------------------------------------
