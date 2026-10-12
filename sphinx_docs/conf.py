@@ -55,6 +55,7 @@ html_theme_options = {
         "image_light": "Figures/GMAP_banner_light.png",
         "image_dark": "Figures/GMAP_banner_dark.png",
     },
+    "header_links_before_dropdown": 4,
     "github_url": "https://github.com/lacourjansenlab/GMAP",
     "navbar_end": [
         "search-button",
