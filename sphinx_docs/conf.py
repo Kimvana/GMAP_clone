@@ -2,6 +2,7 @@ import inspect
 import os
 import subprocess
 import sys
+import traceback
 from pathlib import Path
 
 # Configuration file for the Sphinx documentation builder.
@@ -198,6 +199,7 @@ def release_download_overview():
         tags = [t.strip() for t in tags_raw.split("\n") if t.strip()]
     except Exception:
         tags = []
+        return f"{tags_raw}\n\n\n{traceback.format_exc}"
 
     base_url = "https://github.com/Kimvana/GMAP_clone/releases/tag/"
     return_string = (
