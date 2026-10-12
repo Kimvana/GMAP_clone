@@ -119,7 +119,7 @@ Then, the same electrostatic properties are calculated for each group in the MD 
 Where to download GMAP?
 =======================
 
-|release_download_overview|
+.. include:: linkfile.rst
 
 
 Indices and tables
