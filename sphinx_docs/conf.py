@@ -214,10 +214,11 @@ def release_download_overview():
         if version != prev_version:
             if version[0] != prev_version[0]:
                 return_string += (
-                    f"\nGMAP {version[0]}\n\n"
+                    f"\nGMAP {version[0]}\n{'-' * 30}\n\n"
+                    ".. hlist::\n    :columns: 4\n\n"
                 )
             return_string += (
-                f"| `Version {tag[1:]} <{base_url}{tag}>`__\n"
+                f"    - `Version {tag[1:]} <{base_url}{tag}>`__\n"
             )
         prev_version = version
 
