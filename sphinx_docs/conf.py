@@ -203,7 +203,7 @@ def release_download_overview():
 
     base_url = "https://github.com/Kimvana/GMAP_clone/releases/tag/"
     return_string = (
-        "\n    | Download link for most recent path of each version:\n"
+        "Download link for most recent patch of each version:\n\n"
     )
 
     prev_version = ("x", "x")
@@ -213,15 +213,13 @@ def release_download_overview():
         version = (tag_split[0], tag_split[1])
         if version != prev_version:
             return_string += (
-                f"    | `Version {tag[1:]} <{base_url}{tag}>`__\n"
+                f"| `Version {tag[1:]} <{base_url}{tag}>`__\n"
             )
         prev_version = version
 
     return return_string
 
 
-rst_epilog = f"""
-.. |release_download_overview| replace::
-
-{release_download_overview()}
-"""
+linkfile = Path(__file__).parent / "linkfile.rst"
+with open(linkfile, "w", encoding="utf-8") as fhand:
+    fhand.write(release_download_overview())
